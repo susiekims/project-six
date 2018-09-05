@@ -7,7 +7,7 @@ class Landing extends Component {
             <div className="landing-page">
                 <h1>CRITTER</h1>
                 <h2>Find your creepy companion</h2>
-                <SearchForm />
+                <SearchForm getPets={this.props.getPets}/>
             </div>
         )
     }
