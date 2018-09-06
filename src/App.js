@@ -96,22 +96,30 @@ class App extends Component {
             console.log(res);
             if(res.data.petfinder.pets.pet) {
 
-                let petsArray = Object.entries(res.data.petfinder.pets)
-                console.log(petsArray[0][1]);
-            if(typeof(petsArray[0][1]) === 'array' ) {
-                let pets = petsArray[0][1].filter((pet) => {
-                    return pet.media.photos
-                });
-                console.log(pets);
-                this.setState({pets});
-                // first filter this array for pets that have pics, then set state
-                } else if(petsArray[0][1].media.photos){
-                    let pet = [ petsArray[0][1] ]; 
+                let petsArray = Object.values(res.data.petfinder.pets)
+                console.log(petsArray);
+                // console.log(petsArray[0].length);
+                if (petsArray[0].length) {
+                    console.log(`case 1`);
+                    
+                    let pets = petsArray[0].filter((pet) => {
+                        return pet.media.photos
+                    });
+                    if (pets.length === 0){
+                        alert('it is 0')
+                    }
+                    this.setState({pets});
+                } else if(petsArray[0].media.photos){
+                    console.log(`case 2`);
+                    
+                    let pet = [ petsArray[0] ]; 
                     this.setState({
                         pets: pet
                     })
                 } else {
-                    alert('NO PETSSSSS');
+                    console.log(`case 3`);
+                    
+                    alert('NO PET PHOTKA');
                 }
             }
 
