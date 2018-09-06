@@ -69,6 +69,7 @@ class SearchForm extends Component {
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
+        
                 <input type="submit" value="FIND YO PET"/>
             </form>
         )

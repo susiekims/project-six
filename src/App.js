@@ -4,6 +4,8 @@ import Landing from './Components/Landing';
 import axios from 'axios';
 import Qs from 'qs';
 import ResultPage from './Components/ResultPage';
+import SinglePet from './Components/SinglePet';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 class App extends Component {
     constructor() {
@@ -32,13 +34,10 @@ class App extends Component {
                 params: {
                     reqUrl: 'https://api.petfinder.com/breed.list',
                     params: {
-                    key: '729776b0ff12f97426ef03d015026841',
-                    format: 'json',
-                    output: 'full',
-                    animal: animal,
-                    },
-                    proxyHeaders: {
-                    'header_params': 'value'
+                        key: '729776b0ff12f97426ef03d015026841',
+                        format: 'json',
+                        output: 'full',
+                        animal: animal,
                     },
                     xmlToJSON: false
                 }
@@ -132,12 +131,27 @@ class App extends Component {
     render() {
 
         return (
-            <div className="App">
-                <Landing breeds={this.state.breeds} getPets={this.getPets}/>
-                <ResultPage pets={this.state.pets}/>
-            </div>
+            <Router>
+                <div className="App">
+                    <Route exact path="/" render={(props) => (
+                        this.state.pets.length === 0 ?
+                        <Landing {...props} breeds={this.state.breeds} getPets={this.getPets}/>
+                        :
+                        <Redirect to="/results" />
+                    )}/>
+                    {/* <ResultPage pets={this.state.pets}/> */}
+                    <Route path="/pet/:pet_id" component={SinglePet} />
+                    <Route path="/results" render={() => (
+                        <ResultPage pets={this.state.pets} breeds={this.state.breeds} getPets={this.getPets}/>
+                    )} />
+                </div>
+            </Router>
         );
     }
 }
 
 export default App;
+
+{/* <Route exact path="/players" render={(props) => <Players {...props}
+    numberOfPlayers={this.state.numberOfPlayers}
+    addPlayers={this.addPlayers} />} /> */}
