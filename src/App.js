@@ -103,7 +103,7 @@ class App extends Component {
 
         return (
             <div className="App">
-                <Landing getPets={this.getPets}/>
+                <Landing breeds={this.state.breeds} getPets={this.getPets}/>
                 <ResultPage pets={this.state.pets}/>
             </div>
         );

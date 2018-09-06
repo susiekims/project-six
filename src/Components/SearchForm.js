@@ -7,7 +7,8 @@ class SearchForm extends Component {
             location: '',
             type: '',
             age: '',
-            sex: ''
+            sex: '',
+            breed: ''
         };
     }
 
@@ -36,6 +37,24 @@ class SearchForm extends Component {
                     <option value="reptile">Reptile</option>
                     <option value="smallfurry">Small and Furry</option>
                     <option value="bird">Flying Friends</option>
+                </select>
+                <select name="" id="breed" onChange={this.handleChange}>
+                    <option value=" ">Any breed</option>
+                    {
+                        this.state.type === "reptile" && this.props.breeds.reptile.map((breed) => {
+                            return <option value={breed}>{breed}</option>
+                        })
+                    }
+                    {
+                        this.state.type === "smallfurry" && this.props.breeds.smallfurry.map((breed) => {
+                            return <option value={breed}>{breed}</option>
+                        })
+                    }
+                    {
+                        this.state.type === "bird" && this.props.breeds.bird.map((breed) => {
+                            return <option value={breed}>{breed}</option>
+                        })
+                    }
                 </select>
                 <select name="" id="age" onChange={this.handleChange}>
                     <option value=" ">Any Age</option>
