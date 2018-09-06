@@ -60,7 +60,7 @@ class App extends Component {
     }
 
 
-    getPets = (location, type, age, sex) => {
+    getPets = (location, type, age, sex, breed) => {
         console.log(location, type, age);
         axios({
             url: 'https://proxy.hackeryou.com',
@@ -82,6 +82,7 @@ class App extends Component {
                 age: age,
                 count: 100,
                 sex: sex,
+                breed: breed
                 },
                 proxyHeaders: {
                 'header_params': 'value'
@@ -89,13 +90,20 @@ class App extends Component {
                 xmlToJSON: false
             }
         }).then((res) => {
-            let petsArray = Object.entries(res.data.petfinder.pets)
-            let pets = petsArray[0][1].filter((pet) => {
-                return pet.media.photos
-            });
-            console.log(pets);
-            this.setState({pets});
-            // first filter this array for pets that have pics, then set state
+            console.log(res);
+            if(res.data.petfinder.pets === {}) {
+
+                let petsArray = Object.entries(res.data.petfinder.pets)
+                let pets = petsArray[0][1].filter((pet) => {
+                    return pet.media.photos
+                });
+                console.log(pets);
+                this.setState({pets});
+                // first filter this array for pets that have pics, then set state
+            }
+
+            else {alert('no pets SAAAAWRY')}; 
+    
         })
     }
     

@@ -25,7 +25,8 @@ class SearchForm extends Component {
         let type = this.state.type;
         let age = this.state.age;
         let sex = this.state.sex;
-        this.props.getPets(location, type, age, sex);
+        let breed = this.state.breed;
+        this.props.getPets(location, type, age, sex, breed);
     }
 
     render() {
