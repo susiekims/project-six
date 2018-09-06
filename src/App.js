@@ -61,7 +61,10 @@ class App extends Component {
 
 
     getPets = (location, type, age, sex, breed) => {
-        console.log(location, type, age);
+        console.log(location, type, age, sex, breed);
+        this.setState({
+            pets: []
+        })
         axios({
             url: 'https://proxy.hackeryou.com',
             method: 'GET',
@@ -91,16 +94,27 @@ class App extends Component {
             }
         }).then((res) => {
             console.log(res);
-            if(res.data.petfinder.pets === {}) {
+            if(res.data.petfinder.pets.pet) {
 
                 let petsArray = Object.entries(res.data.petfinder.pets)
+                console.log(petsArray[0][1]);
+            if(typeof(petsArray[0][1]) === 'array' ) {
                 let pets = petsArray[0][1].filter((pet) => {
                     return pet.media.photos
                 });
                 console.log(pets);
                 this.setState({pets});
                 // first filter this array for pets that have pics, then set state
+                } else if(petsArray[0][1].media.photos){
+                    let pet = [ petsArray[0][1] ]; 
+                    this.setState({
+                        pets: pet
+                    })
+                } else {
+                    alert('NO PETSSSSS');
+                }
             }
+
 
             else {alert('no pets SAAAAWRY')}; 
     
