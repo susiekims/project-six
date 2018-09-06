@@ -139,7 +139,6 @@ class App extends Component {
                         :
                         <Redirect to="/results" />
                     )}/>
-                    {/* <ResultPage pets={this.state.pets}/> */}
                     <Route path="/pet/:pet_id" component={SinglePet} />
                     <Route path="/results" render={() => (
                         <ResultPage pets={this.state.pets} breeds={this.state.breeds} getPets={this.getPets}/>
