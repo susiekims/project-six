@@ -9,8 +9,54 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            pets: []
+            pets: [],
+            breeds: {
+                reptile: [],
+                smallfurry: [],
+                bird: []
+            }
         }
+    }
+
+    componentDidMount() {
+        const getBreeds = (animal) => {
+            axios({
+                url: 'https://proxy.hackeryou.com',
+                method: 'GET',
+                dataResponse: 'json',
+                paramsSerializer: function (params) {
+                    return Qs.stringify(params, {
+                    arrayFormat: 'brackets'
+                    })
+                },
+                params: {
+                    reqUrl: 'https://api.petfinder.com/breed.list',
+                    params: {
+                    key: '729776b0ff12f97426ef03d015026841',
+                    format: 'json',
+                    output: 'full',
+                    animal: animal,
+                    },
+                    proxyHeaders: {
+                    'header_params': 'value'
+                    },
+                    xmlToJSON: false
+                }
+            }).then(res => {
+                let breeds = res.data.petfinder.breeds.breed.map(breed => {
+                    return breed.$t;
+                }) ;
+                this.setState({
+                    breeds: {
+                        ...this.state.breeds,
+                        [animal]: breeds
+                    }
+                })
+            })    
+        }
+        getBreeds('reptile');
+        getBreeds('smallfurry');
+        getBreeds('bird');
     }
 
 
@@ -54,6 +100,7 @@ class App extends Component {
     }
     
     render() {
+
         return (
             <div className="App">
                 <Landing getPets={this.getPets}/>
