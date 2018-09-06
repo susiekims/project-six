@@ -6,8 +6,8 @@ class SearchForm extends Component {
         this.state = {
             location: '',
             type: '',
-            age: ''
-
+            age: '',
+            sex: ''
         };
     }
 
@@ -23,11 +23,8 @@ class SearchForm extends Component {
         let location = this.state.location;
         let type = this.state.type;
         let age = this.state.age;
-        if (location.length > 0 && type.length > 0 && age.length > 0) {
-            this.props.getPets(location, type, age);
-        } else {
-            alert('FILL OUT THE FORM!!');
-        }
+        let sex = this.state.sex;
+        this.props.getPets(location, type, age, sex);
     }
 
     render() {
@@ -35,17 +32,22 @@ class SearchForm extends Component {
             <form action="" onSubmit={this.handleSubmit}>
                 <input type="text" id="location" placeholder="Enter City and Province" onChange={this.handleChange}/>
                 <select name="types" id="type" onChange={this.handleChange}>
-                    <option value="" selected disabled hidden>Type</option>
+                    <option value="" selected disabled hidden>Choose type</option>
                     <option value="reptile">Reptile</option>
                     <option value="smallfurry">Small and Furry</option>
                     <option value="bird">Flying Friends</option>
                 </select>
                 <select name="" id="age" onChange={this.handleChange}>
-                    <option value="" selected disabled hidden>Age</option>
+                    <option value=" ">Any Age</option>
                     <option value="Baby">Lil Bebes</option>
                     <option value="Young">Youngins</option>
                     <option value="Adult">Grown ups</option>
                     <option value="Senior">Wrinkly boys</option>
+                </select>
+                <select name="" id="sex" onChange={this.handleChange}>
+                    <option value=" ">Any Sex</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
                 </select>
                 <input type="submit" value="FIND YO PET"/>
             </form>
