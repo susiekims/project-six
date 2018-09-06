@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
 
 class PetCard extends Component {
     constructor(props) {
@@ -16,7 +18,9 @@ class PetCard extends Component {
             <div className="pet-card">
                 <h2>{this.state.name}</h2>
                 <img src={this.state.photo} />
+                <Link to={`/pet/pet_id`}>READ MOAR</Link>
                 <p>{this.state.breed}</p>
+                
                 <p>{this.state.sex}</p>
             </div>
         )
