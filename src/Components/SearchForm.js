@@ -22,17 +22,21 @@ class SearchForm extends Component {
         console.log('submitted');
         e.preventDefault();
         let location = this.state.location;
+        if (this.props.location) {
+            location = this.props.location;
+        } 
         let type = this.state.type;
         let age = this.state.age;
         let sex = this.state.sex;
         let breed = this.state.breed;
+
         this.props.getPets(location, type, age, sex, breed);
     }
 
     render() {
         return (
             <form action="" onSubmit={this.handleSubmit}>
-                <input type="text" id="location" placeholder="Enter City and Province" onChange={this.handleChange}/>
+                <input type="text" id="location" value={this.props.location} placeholder="Enter City and Province" onChange={this.handleChange}/>
                 <select name="types" id="type" onChange={this.handleChange}>
                     <option value="" selected disabled hidden>Choose type</option>
                     <option value="reptile">Reptile</option>

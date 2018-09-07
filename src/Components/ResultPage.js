@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import PetCard from './PetCard';
 import SearchForm from './SearchForm';
 
+import config from '../firebase';
+import firebase from 'firebase';
+
+const provider = new firebase.auth.GoogleAuthProvider();
+const auth = firebase.auth();
+
+
 class ResultPage extends Component {
     render() {
         return (
             <div className="result-page">
-            <header>
-                <SearchForm breeds={this.props.breeds} getPets={this.props.getPets} />
-            </header>
+            <button onClick={this.props.login}> LOG IN RESULTS.JS</button>
+
+            <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
             {
                 this.props.pets.map((pet) => {
-                    return <PetCard pet={pet}/>
+                    return <PetCard user={this.props.user} login={this.props.login} logout={this.props.logout} pet={pet}/>
                 })
             }
             </div>
