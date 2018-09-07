@@ -32,7 +32,7 @@ class SearchForm extends Component {
     render() {
         return (
             <form action="" onSubmit={this.handleSubmit}>
-                <input type="text" id="location" placeholder="Enter City and Province" onChange={this.handleChange}/>
+                <input type="text" id="location" value={this.props.location} placeholder="Enter City and Province" onChange={this.handleChange}/>
                 <select name="types" id="type" onChange={this.handleChange}>
                     <option value="" selected disabled hidden>Choose type</option>
                     <option value="reptile">Reptile</option>

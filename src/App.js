@@ -6,6 +6,7 @@ import Qs from 'qs';
 import ResultPage from './Components/ResultPage';
 import SinglePet from './Components/SinglePet';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import userLocation from './userLocation';
 
 class App extends Component {
     constructor() {
@@ -16,11 +17,18 @@ class App extends Component {
                 reptile: [],
                 smallfurry: [],
                 bird: []
-            }
+            },
+            location: ''
         }
     }
 
     componentDidMount() {
+        userLocation().then((loc) => {
+            console.log(loc);
+            this.setState({
+                location: loc
+            })
+        });
         const getBreeds = (animal) => {
             axios({
                 url: 'https://proxy.hackeryou.com',
@@ -135,14 +143,14 @@ class App extends Component {
                 <div className="App">
                     <Route exact path="/" render={(props) => (
                         this.state.pets.length === 0 ?
-                        <Landing {...props} breeds={this.state.breeds} getPets={this.getPets}/>
+                        <Landing {...props} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
                         :
                         <Redirect to="/results" />
                     )}/>
                     {/* <ResultPage pets={this.state.pets}/> */}
                     <Route path="/pet/:pet_id" component={SinglePet} />
                     <Route path="/results" render={() => (
-                        <ResultPage pets={this.state.pets} breeds={this.state.breeds} getPets={this.getPets}/>
+                        <ResultPage pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets}/>
                     )} />
                 </div>
             </Router>
