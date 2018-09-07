@@ -92,15 +92,9 @@ class App extends Component {
                 xmlToJSON: false
             }
         }).then((res) => {
-            console.log(res);
             if(res.data.petfinder.pets.pet) {
-
                 let petsArray = Object.values(res.data.petfinder.pets)
-                console.log(petsArray);
-                // console.log(petsArray[0].length);
                 if (petsArray[0].length) {
-                    console.log(`case 1`);
-                    
                     let pets = petsArray[0].filter((pet) => {
                         return pet.media.photos
                     });
@@ -109,27 +103,19 @@ class App extends Component {
                     }
                     this.setState({pets});
                 } else if(petsArray[0].media.photos){
-                    console.log(`case 2`);
-                    
                     let pet = [ petsArray[0] ]; 
                     this.setState({
                         pets: pet
                     })
                 } else {
-                    console.log(`case 3`);
-                    
                     alert('NO PET PHOTKA');
                 }
             }
-
-
             else {alert('no pets SAAAAWRY')}; 
-    
         })
     }
     
     render() {
-
         return (
             <Router>
                 <div className="App">
@@ -150,7 +136,3 @@ class App extends Component {
 }
 
 export default App;
-
-{/* <Route exact path="/players" render={(props) => <Players {...props}
-    numberOfPlayers={this.state.numberOfPlayers}
-    addPlayers={this.addPlayers} />} /> */}
