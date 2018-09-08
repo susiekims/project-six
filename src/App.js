@@ -18,6 +18,7 @@ class App extends Component {
         super();
         this.state = {
             user: null,
+            loggedIn: false,
             pets: [],
             breeds: {
                 reptile: [],
@@ -93,17 +94,22 @@ class App extends Component {
 
     logout = () => {
         auth.signOut().then(()=> {
+            console.log('signed out')
             this.setState({
-                user: null
+                user: null,
+                loggedIn: false
             });
-            this.dbRef.off();
+            // this.dbRef.off();
         })
     }
 
     login = () => {
         console.log('login yo!');
         auth.signInWithPopup(provider).then(res => {
-            this.setState({user: res.user})
+            this.setState({
+                user: res.user,
+                loggedIn: true
+            })
         });
     }
 
@@ -183,7 +189,7 @@ class App extends Component {
                     {/* <Route path="/pet/:pet_id" component={SinglePet} /> */}
 
                     <Route path="/pet/:pet_id" render={(props) => (
-                        <SinglePet {...props} addToFaves={this.addToFaves} user={this.state.user} login={this.login} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} pets={this.state.pets}/>
+                        <SinglePet {...props} addToFaves={this.addToFaves} user={this.state.user} loggedIn={this.state.loggedIn} login={this.login} logout={this.logout} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} pets={this.state.pets}/>
                     )} />
 
 

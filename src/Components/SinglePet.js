@@ -4,26 +4,19 @@ import axios from 'axios';
 import Qs from 'qs';
 import {Link} from 'react-router-dom';
 
-// import config from '../firebase';
-// import firebase from 'firebase';
-
-// const provider = new firebase.auth.GoogleAuthProvider();
-// const auth = firebase.auth();
-
-
-
 class singlePets extends Component {
     constructor(props){
         super(props);
         this.state = {
             user: this.props.user,
-            loggedIn: false, 
+            loggedIn: this.props.loggedIn, 
             animal: {
                 name: '',
                 breed: '',
                 sex: '',
                 photo: '',
-                description: ''
+                description: '',
+                id: '',
             }
         }
     }
@@ -60,7 +53,8 @@ class singlePets extends Component {
                         breed: petInfo.breeds.breed.$t,
                         sex: petInfo.sex.$t,
                         photo: petInfo.media.photos.photo[2].$t,
-                        description: petInfo.description.$t
+                        description: petInfo.description.$t,
+                        id: this.props.match.params.pet_id
                     }
                 })
             })    
@@ -70,16 +64,15 @@ class singlePets extends Component {
         if (this.state.loggedIn === false && this.props.user != null){
 
             this.setState({user: this.props.user,
-           loggedIn: true    
+                loggedIn: true    
             });
-
         }
-
     }
+
     render() {
         return (
             <div className="singlePets">
-            <Header location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
+            <Header user={this.props.user} login={this.props.login} logout={this.props.logout} loggedIn={this.props.loggedIn} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
                 <h1>{this.state.animal.name}</h1>
                 <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
                 <h3>{this.state.animal.breed}</h3>

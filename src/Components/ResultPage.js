@@ -14,9 +14,8 @@ class ResultPage extends Component {
     render() {
         return (
             <div className="result-page">
-            <button onClick={this.props.login}> LOG IN RESULTS.JS</button>
 
-            <Header location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
+            <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
             {
                 this.props.pets.map((pet) => {
                     return <PetCard user={this.props.user} login={this.props.login} logout={this.props.logout} pet={pet}/>
