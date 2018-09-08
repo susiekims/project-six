@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import axios from 'axios';
 import Qs from 'qs';
 import {Link} from 'react-router-dom';
@@ -16,7 +17,7 @@ class singlePets extends Component {
         super(props);
         this.state = {
             user: this.props.user,
-            userexists: false, 
+            loggedIn: false, 
             animal: {
                 name: '',
                 breed: '',
@@ -66,10 +67,10 @@ class singlePets extends Component {
     }
     componentDidUpdate(oldProps){
         console.log(this.props.user);
-        if (this.state.userexists === false && this.props.user != null){
+        if (this.state.loggedIn === false && this.props.user != null){
 
             this.setState({user: this.props.user,
-            userexists: true    
+           loggedIn: true    
             });
 
         }
@@ -78,6 +79,7 @@ class singlePets extends Component {
     render() {
         return (
             <div className="singlePets">
+            <Header location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
                 <h1>{this.state.animal.name}</h1>
                 <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
                 <h3>{this.state.animal.breed}</h3>

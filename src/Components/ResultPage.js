@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PetCard from './PetCard';
-import SearchForm from './SearchForm';
+// import SearchForm from './SearchForm';
+import Header from './Header';
 
 import config from '../firebase';
 import firebase from 'firebase';
@@ -15,7 +16,7 @@ class ResultPage extends Component {
             <div className="result-page">
             <button onClick={this.props.login}> LOG IN RESULTS.JS</button>
 
-            <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
+            <Header location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
             {
                 this.props.pets.map((pet) => {
                     return <PetCard user={this.props.user} login={this.props.login} logout={this.props.logout} pet={pet}/>

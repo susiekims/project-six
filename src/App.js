@@ -183,7 +183,7 @@ class App extends Component {
                     {/* <Route path="/pet/:pet_id" component={SinglePet} /> */}
 
                     <Route path="/pet/:pet_id" render={(props) => (
-                        <SinglePet {...props} addToFaves={this.addToFaves} user={this.state.user} login={this.login} />
+                        <SinglePet {...props} addToFaves={this.addToFaves} user={this.state.user} login={this.login} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} pets={this.state.pets}/>
                     )} />
 
 
