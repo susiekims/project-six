@@ -22,7 +22,6 @@ class FavePets extends Component {
             let faveRef = firebase.database().ref(`${user.uid}/faves`); 
             faveRef.on('value', (snapshot) => {
                 if (snapshot.val()) {
-                    console.log(Object.entries(snapshot.val()));
                     let favePets = Object.entries(snapshot.val()).map((pet) => {
                         return ({
                             name: pet[1].name,
@@ -34,7 +33,6 @@ class FavePets extends Component {
                         })
                     });
                     this.setState({favePets});
-                    console.log(favePets);
                 }
             })
                 
@@ -42,8 +40,6 @@ class FavePets extends Component {
     }
 
     render() {
-        console.log(this.state);
-        
         return (
             <div className="FavePets">
                  <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />

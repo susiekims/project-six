@@ -114,16 +114,27 @@ class App extends Component {
         });
     }
 
+    isFavorite(pet) {
+        const favesList = Object.values(this.state.faves);
+        for (let i = 0; i < favesList.length; i++) {
+            if (favesList[i].id === pet.id) {
+                return true;
+            }
+        }
+    }
+
     addToFaves = (pet) => {
-    
-        // this.dbRef.push(pet);
-        firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
+        if (this.isFavorite(pet)) {
+            alert('this pet is already in your faves')
+        } else {
+            firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
+            alert('added to faves!');
+        }
     }
 
     deleteFromFaves = (e) => {
-
         firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
-        console.log(e.target.id);
+        alert('removed from faves!');
     }
 
 
@@ -164,7 +175,11 @@ class App extends Component {
                 let petsArray = Object.values(res.data.petfinder.pets)
                 if (petsArray[0].length) {
                     let pets = petsArray[0].filter((pet) => {
-                        return pet.media.photos && pet.description.$t
+                        return pet.media.photos 
+                            && pet.description.$t
+                            && pet.breeds.breed.$t
+                            && pet.name.$t
+                            && pet.id.$t
                     });
                     if (pets.length === 0){
                         alert('it is 0')

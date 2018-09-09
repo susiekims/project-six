@@ -21,9 +21,6 @@ class singlePets extends Component {
         }
     }
     componentDidMount(){
-        console.log(this.props.match.params.pet_id);
-        console.log(this.props);
-        
             axios({
                 url: 'https://proxy.hackeryou.com',
                 method: 'GET',
@@ -44,8 +41,6 @@ class singlePets extends Component {
                     xmlToJSON: false
                 }
             }).then(res => {
-                console.log(res);
-                console.log(res.data.petfinder.pet);
                 let petInfo = res.data.petfinder.pet
                 this.setState({
                     animal: {
@@ -60,9 +55,7 @@ class singlePets extends Component {
             })    
     }
     componentDidUpdate(oldProps){
-        console.log(this.props.user);
         if (this.state.loggedIn === false && this.props.user != null){
-
             this.setState({user: this.props.user,
                 loggedIn: true    
             });
@@ -88,6 +81,8 @@ class singlePets extends Component {
                     : <button onClick={this.props.login}> LOG IN TO ADD TO FAVES</button>
 
                 }
+
+              
             </div>
         )
     }

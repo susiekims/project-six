@@ -12,7 +12,6 @@ class Header extends Component {
     }
 
     componentDidUpdate(oldProps){
-        console.log(this.props.user);
         if (this.state.loggedIn === false && this.props.user !== null){
             this.setState({user: this.props.user,
                 loggedIn: true  
