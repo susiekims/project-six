@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom
 import userLocation from './userLocation';
 import config from './firebase';
 import firebase from 'firebase';
+import FavePets from './Components/FavePets'
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -114,7 +115,7 @@ class App extends Component {
     }
 
     addToFaves = (pet) => {
-        console.log('this is my fav pet:', pet);
+    
         // this.dbRef.push(pet);
         firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
     }
@@ -195,6 +196,10 @@ class App extends Component {
 
                     <Route path="/results" render={() => (
                         <ResultPage user={this.state.user}  login={this.login} logout={this.logout} pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets}/>
+                    )} />
+
+                    <Route path="/faves" render={(props) => (
+                        <FavePets  {...props} user={this.state.user} login={this.login} logout={this.logout} pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} faves={this.state.faves}/>
                     )} />
                 </div>
             </Router>
