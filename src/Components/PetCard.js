@@ -7,10 +7,11 @@ class PetCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: this.props.pet.name.$t,
-            breed: this.props.pet.breeds.breed.$t,
-            sex: this.props.pet.sex.$t,
-            photo: this.props.pet.media.photos.photo[2].$t
+            name: this.props.pet.name,
+            breed: this.props.pet.breed,
+            sex: this.props.pet.sex,
+            photo: this.props.pet.photo,
+            id: this.props.pet.id
         }
     }
 
@@ -19,7 +20,7 @@ class PetCard extends Component {
             <div className="pet-card">
                 <h2>{this.state.name}</h2>
                 <img src={this.state.photo} />
-                <Link to={`/pet/${this.props.pet.id.$t}`}>
+                <Link to={`/pet/${this.props.pet.id}`}>
                     READ MOAR
                 </Link>
                 <p>{this.state.breed}</p>
