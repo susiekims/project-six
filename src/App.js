@@ -163,11 +163,32 @@ class App extends Component {
                     if (pets.length === 0){
                         alert('it is 0')
                     }
-                    this.setState({pets});
+                    let petsList = pets.map(pet => {
+                        return ({
+                            name: pet.name.$t,
+                            breed: pet.breeds.breed.$t,
+                            sex: pet.sex.$t,
+                            photo: pet.media.photos.photo[2].$t,
+                            id: pet.id.$t
+                        })
+                    })
+                    this.setState({pets: petsList});
                 } else if(petsArray[0].media.photos){
                     let pet = [ petsArray[0] ]; 
+
+                    let petsList = pet.map(pet => {
+                        return ({
+                            name: pet.name.$t,
+                            breed: pet.breeds.breed.$t,
+                            sex: pet.sex.$t,
+                            photo: pet.media.photos.photo[2].$t,
+                            id: pet.id.$t
+                        })
+                    })
+
+
                     this.setState({
-                        pets: pet
+                        pets: petsList
                     })
                 } else {
                     alert('NO PET PHOTKA');

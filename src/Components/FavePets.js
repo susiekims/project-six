@@ -42,6 +42,7 @@ class FavePets extends Component {
 
     render() {
         console.log(this.state);
+        
         return (
             <div className="FavePets">
                  <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
