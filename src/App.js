@@ -120,6 +120,12 @@ class App extends Component {
         firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
     }
 
+    deleteFromFaves = (e) => {
+
+        firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
+        console.log(e.target.id);
+    }
+
 
     getPets = (location, type, age, sex, breed) => {
         console.log(location, type, age, sex, breed);
@@ -158,7 +164,7 @@ class App extends Component {
                 let petsArray = Object.values(res.data.petfinder.pets)
                 if (petsArray[0].length) {
                     let pets = petsArray[0].filter((pet) => {
-                        return pet.media.photos
+                        return pet.media.photos && pet.description.$t
                     });
                     if (pets.length === 0){
                         alert('it is 0')
@@ -220,7 +226,7 @@ class App extends Component {
                     )} />
 
                     <Route path="/faves" render={(props) => (
-                        <FavePets  {...props} user={this.state.user} login={this.login} logout={this.logout} pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} faves={this.state.faves}/>
+                        <FavePets  {...props} user={this.state.user} login={this.login} logout={this.logout} pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} faves={this.state.faves} deleteFromFaves={this.deleteFromFaves} />
                     )} />
                 </div>
             </Router>

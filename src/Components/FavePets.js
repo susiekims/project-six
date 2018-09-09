@@ -22,14 +22,15 @@ class FavePets extends Component {
             let faveRef = firebase.database().ref(`${user.uid}/faves`); 
             faveRef.on('value', (snapshot) => {
                 if (snapshot.val()) {
-                    // console.log(snapshot.val());
+                    console.log(Object.entries(snapshot.val()));
                     let favePets = Object.entries(snapshot.val()).map((pet) => {
                         return ({
                             name: pet[1].name,
                             breed: pet[1].breed,
                             photo: pet[1].photo,
                             sex: pet[1].sex,
-                            id: pet[0]
+                            id: pet[1].id,
+                            key: pet[0]
                         })
                     });
                     this.setState({favePets});
@@ -51,9 +52,17 @@ class FavePets extends Component {
                 {
                     this.state.favePets.map((pet) => {
 
-                       return <PetCard pet={pet} />
+                       return (
+                    <div>       
+                        <PetCard pet={pet} key={pet.key} />
+                        <button id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
+                    </div>    
+                        )
+                        
                     })
                 }
+
+
             </div>
         )
     }
