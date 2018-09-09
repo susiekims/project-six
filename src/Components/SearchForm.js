@@ -22,10 +22,14 @@ class SearchForm extends Component {
         console.log('submitted');
         e.preventDefault();
         let location = this.state.location;
+        if (this.props.location) {
+            location = this.props.location;
+        } 
         let type = this.state.type;
         let age = this.state.age;
         let sex = this.state.sex;
         let breed = this.state.breed;
+
         this.props.getPets(location, type, age, sex, breed);
     }
 

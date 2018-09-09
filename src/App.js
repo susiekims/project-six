@@ -7,28 +7,39 @@ import ResultPage from './Components/ResultPage';
 import SinglePet from './Components/SinglePet';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import userLocation from './userLocation';
+import config from './firebase';
+import firebase from 'firebase';
+import FavePets from './Components/FavePets'
+
+const provider = new firebase.auth.GoogleAuthProvider();
+const auth = firebase.auth();
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
+            user: null,
+            loggedIn: false,
             pets: [],
             breeds: {
                 reptile: [],
                 smallfurry: [],
                 bird: []
             },
-            location: null
+            location: null,
+            faves: []
         }
     }
 
     componentDidMount() {
+
         userLocation().then((loc) => {
             console.log(loc);
             this.setState({
                 location: loc
             })
         });
+
         const getBreeds = (animal) => {
             axios({
                 url: 'https://proxy.hackeryou.com',
@@ -64,6 +75,49 @@ class App extends Component {
         getBreeds('reptile');
         getBreeds('smallfurry');
         getBreeds('bird');
+
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({user}, () => {
+                    this.dbRef = firebase.database().ref(this.state.user.uid);
+
+                    this.dbRef.on('value', (snapshot) => {
+                        if(snapshot.val()){
+                            this.setState({
+                                faves: snapshot.val().faves 
+                            })
+                        }
+                    })
+                })
+            }
+        })
+    }
+
+    logout = () => {
+        auth.signOut().then(()=> {
+            console.log('signed out')
+            this.setState({
+                user: null,
+                loggedIn: false
+            });
+            // this.dbRef.off();
+        })
+    }
+
+    login = () => {
+        console.log('login yo!');
+        auth.signInWithPopup(provider).then(res => {
+            this.setState({
+                user: res.user,
+                loggedIn: true
+            })
+        });
+    }
+
+    addToFaves = (pet) => {
+    
+        // this.dbRef.push(pet);
+        firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
     }
 
 
@@ -100,15 +154,9 @@ class App extends Component {
                 xmlToJSON: false
             }
         }).then((res) => {
-            console.log(res);
             if(res.data.petfinder.pets.pet) {
-
                 let petsArray = Object.values(res.data.petfinder.pets)
-                console.log(petsArray);
-                // console.log(petsArray[0].length);
                 if (petsArray[0].length) {
-                    console.log(`case 1`);
-                    
                     let pets = petsArray[0].filter((pet) => {
                         return pet.media.photos
                     });
@@ -117,40 +165,41 @@ class App extends Component {
                     }
                     this.setState({pets});
                 } else if(petsArray[0].media.photos){
-                    console.log(`case 2`);
-                    
                     let pet = [ petsArray[0] ]; 
                     this.setState({
                         pets: pet
                     })
                 } else {
-                    console.log(`case 3`);
-                    
                     alert('NO PET PHOTKA');
                 }
             }
-
-
             else {alert('no pets SAAAAWRY')}; 
-    
         })
     }
     
     render() {
-
         return (
             <Router>
                 <div className="App">
                     <Route exact path="/" render={(props) => (
                         this.state.pets.length === 0 ?
-                        <Landing {...props} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
+                        <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
                         :
                         <Redirect to="/results" />
                     )}/>
-                    {/* <ResultPage pets={this.state.pets}/> */}
-                    <Route path="/pet/:pet_id" component={SinglePet} />
+                    {/* <Route path="/pet/:pet_id" component={SinglePet} /> */}
+
+                    <Route path="/pet/:pet_id" render={(props) => (
+                        <SinglePet {...props} addToFaves={this.addToFaves} user={this.state.user} loggedIn={this.state.loggedIn} login={this.login} logout={this.logout} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} pets={this.state.pets}/>
+                    )} />
+
+
                     <Route path="/results" render={() => (
-                        <ResultPage pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets}/>
+                        <ResultPage user={this.state.user}  login={this.login} logout={this.logout} pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets}/>
+                    )} />
+
+                    <Route path="/faves" render={(props) => (
+                        <FavePets  {...props} user={this.state.user} login={this.login} logout={this.logout} pets={this.state.pets} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} faves={this.state.faves}/>
                     )} />
                 </div>
             </Router>
@@ -159,7 +208,3 @@ class App extends Component {
 }
 
 export default App;
-
-{/* <Route exact path="/players" render={(props) => <Players {...props}
-    numberOfPlayers={this.state.numberOfPlayers}
-    addPlayers={this.addPlayers} />} /> */}
