@@ -23,18 +23,18 @@ class Header extends Component {
 
     render() {
         return (
-           <header>
-               <Link exact to='/'>Critter</Link>
-               {
-                   this.props.user
-                   ? <button onClick={this.props.logout}>Log Out</button> 
-                   : <button onClick={this.props.login}>Log In</button>
-               }
-               {
-                   this.props.user && <Link to='/faves'>Fave Pets</Link>
-               }
-               <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
-           </header>
+        <header className="main-header">
+            <Link className="link button" exact to='/'>Critter</Link>
+            {
+                this.props.user
+                ? <button className="button" onClick={this.props.logout}>Log Out</button> 
+                : <button className="button" onClick={this.props.login}>Log In</button>
+            }
+            {
+                this.props.user && <Link className="link button" to='/faves'>Fave Pets</Link>
+            }
+            <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
+        </header>
         )
     }
 }

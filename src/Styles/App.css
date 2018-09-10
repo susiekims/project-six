@@ -135,3 +135,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 ul {
   list-style-type: none; }
+
+html {
+  font-family: 'Raleway', sans-serif; }

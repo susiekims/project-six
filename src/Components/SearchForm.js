@@ -42,7 +42,7 @@ class SearchForm extends Component {
 
     render() {
         return (
-            <form action="" onSubmit={this.handleSubmit}>
+            <form className="search-form" action="" onSubmit={this.handleSubmit}>
                 <input type="text" id="location" value={this.props.location} placeholder="Enter City and Province" onChange={this.handleChange}/>
                 <select name="types" id="type" onChange={this.handleChange}>
                     <option value="" selected disabled hidden>Choose type</option>
@@ -80,7 +80,7 @@ class SearchForm extends Component {
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
-                <input type="submit" value="FIND YO PET"/>
+                <input className="search-form-submit" type="submit" value="FIND YO PET"/>
                 {
                     this.state.redirect && <Redirect to='/results'/>
                 }

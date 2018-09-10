@@ -17,15 +17,15 @@ class PetCard extends Component {
 
     render() {
         return(
-            <div className="pet-card">
+            <div className="pet-card box">
                 <h2 className="pet-name">{this.state.name}</h2>
                 <img className="pet-photo" src={this.state.photo} alt={`${this.state.name} the ${this.state.breed}`}/>
-                <Link to={`/pet/${this.props.pet.id}`}>
+                <Link className="link button" to={`/pet/${this.props.pet.id}`}>
                     Read More
                 </Link>
-                <p>{this.state.breed}</p>
+                <p className="pet-breed">{this.state.breed}</p>
                 
-                <p>{this.state.sex}</p>
+                <p className="pet-sex">{this.state.sex}</p> 
             </div>
         )
     }

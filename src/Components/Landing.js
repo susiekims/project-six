@@ -5,24 +5,32 @@ class Landing extends Component {
     render() {
         return (
             <div className="landing-page">
-                <header>
+                <header className="landing-header">
                 {
                     this.props.user
                     ? <button onClick={this.props.logout}>Log Out</button> 
                     : <button onClick={this.props.login}>Log In</button>
                 }   
                 </header>
-                <h1>CRITTER</h1>
-                <h2>Alternative Pets for Alternative People</h2>
-
-                <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
-                <h3>How It Works</h3>
-                <p>You're not just anyone. You're you. And you need a pet that's as unique as you. Welcome to CRITTER, where you can find the perfect adoptable pet in your area thats NOT a boring ol' dog or cat.</p>
-               <ul>
-                   <li>Step One: Make an account! You don't need an account if you just want to browse, but if you want to save the pet to your faves you're going to need an account!</li>
-                   <li>Step Two: Search for pets! Enter your location or allow your browser to detect your location</li>
-                   <li>Step three: Share the links to your pets with your friends or add them to your faves so you can go back to them later!</li>
-               </ul>
+                <div className="landing-title">
+                    <h1 className="landing-logo">CRITTER</h1>
+                    <h2 className="landing-tagline">Alternative Pets for Alternative People</h2>
+                </div>
+                <div className="welcome box">
+                    <h3>Welcome</h3>
+                    <p>You're not just anyone. You're you. And you need a pet that's as unique as you. Welcome to CRITTER, where you can find the perfect adoptable pet in your area thats NOT a boring ol' dog or cat.</p>
+                </div>
+                <div className="instruction box">
+                    <h3>How it Works</h3>
+                    <ul>
+                        <li>Step One: Make an account! You don't need an account if you just want to browse, but if you want to save the pet to your faves you're going to need an account!</li>
+                        <li>Step Two: Search for pets! Enter your location or allow your browser to detect your location</li>
+                        <li>Step three: Share the links to your pets with your friends or add them to your faves so you can go back to them later!</li>
+                    </ul>
+                </div>
+                <div className="landing-search-form box">
+                    <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
+                </div>
             </div>
         )
     }
