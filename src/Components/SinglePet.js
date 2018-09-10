@@ -89,11 +89,11 @@ class singlePets extends Component {
             <Header user={this.props.user} login={this.props.login} logout={this.props.logout} loggedIn={this.props.loggedIn} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
                 <h1>{this.state.animal.name}</h1>
                 <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
-                <h3>{this.state.animal.breed}</h3>
-                <h3>{this.state.animal.sex}</h3>
+                <h3>Breed: {this.state.animal.breed}</h3>
+                <h3>Sex: {this.state.animal.sex}</h3>
                 <p>{this.state.animal.description}</p>
-                <a href={`mailto: ?body=Check out this cute pet! www.critter.com/pet/${this.props.match.params.pet_id}&subject=cute pet`}>Send to a Friend</a>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Check out this awesome critter available for adoptiong!" data-hashtags="CritterApp" data-show-count="false">Tweet</a>
+                <a href={`mailto: ?body=Check out this cute pet! www.critter.com/pet/${this.props.match.params.pet_id}&subject=cute pet`}>Email to Friend</a>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="I found this awesome critter available for adoption!" data-hashtags="CritterApp" data-show-count="false">Share this Critter on Twitter</a>
 
                 <Link to='/results'>Back to results</Link>
 
