@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router'
 
 class SearchForm extends Component {
     constructor() {
@@ -8,7 +9,8 @@ class SearchForm extends Component {
             type: '',
             age: '',
             sex: '',
-            breed: ''
+            breed: '',
+            redirect: false
         };
     }
 
@@ -21,16 +23,21 @@ class SearchForm extends Component {
     handleSubmit = (e) => {
         console.log('submitted');
         e.preventDefault();
-        let location = this.state.location;
-        if (this.props.location) {
-            location = this.props.location;
-        } 
-        let type = this.state.type;
-        let age = this.state.age;
-        let sex = this.state.sex;
-        let breed = this.state.breed;
-
-        this.props.getPets(location, type, age, sex, breed);
+        if ( document.getElementById('type').value) {
+            let location = this.state.location;
+            if (this.props.location) {
+                location = this.props.location;
+            } 
+            let type = this.state.type;
+            let age = this.state.age;
+            let sex = this.state.sex;
+            let breed = this.state.breed;
+    
+            this.props.getPets(location, type, age, sex, breed);
+            this.setState({ redirect: true })
+        } else {
+            alert('please choose a type');
+        }
     }
 
     render() {
@@ -73,8 +80,10 @@ class SearchForm extends Component {
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
-        
                 <input type="submit" value="FIND YO PET"/>
+                {
+                     this.state.redirect && <Redirect to='/results'/>
+                }
             </form>
         )
     }

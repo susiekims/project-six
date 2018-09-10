@@ -5,7 +5,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import ResultPage from './Components/ResultPage';
 import SinglePet from './Components/SinglePet';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import userLocation from './userLocation';
 import config from './firebase';
 import firebase from 'firebase';
@@ -94,18 +94,19 @@ class App extends Component {
     }
 
     logout = () => {
-        auth.signOut().then(()=> {
-            console.log('signed out')
-            this.setState({
-                user: null,
-                loggedIn: false
-            });
-            // this.dbRef.off();
-        })
+        let signOut = window.confirm('are you sure you wanna sign out?');
+        if (signOut) {
+            alert('signed out!');
+            auth.signOut().then(()=> {
+                this.setState({
+                    user: null,
+                    loggedIn: false
+                });
+            })
+        }
     }
 
     login = () => {
-        console.log('login yo!');
         auth.signInWithPopup(provider).then(res => {
             this.setState({
                 user: res.user,
@@ -114,16 +115,31 @@ class App extends Component {
         });
     }
 
+    isFavorite = (pet) => {
+        const favesList = Object.values(this.state.faves);
+        for (let i = 0; i < favesList.length; i++) {
+            if (favesList[i].id === pet.id) {
+                console.log(true);
+                return true;
+            }
+        }
+    }
+
     addToFaves = (pet) => {
-    
-        // this.dbRef.push(pet);
-        firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
+        if (this.isFavorite(pet)) {
+            alert('this pet is already in your faves')
+        } else {
+            firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
+            alert('added to faves!');
+        }
     }
 
     deleteFromFaves = (e) => {
-
-        firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
-        console.log(e.target.id);
+        const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
+        if (confirmDelete) {
+            firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
+            alert('removed from faves!');
+        }
     }
 
 
@@ -164,7 +180,11 @@ class App extends Component {
                 let petsArray = Object.values(res.data.petfinder.pets)
                 if (petsArray[0].length) {
                     let pets = petsArray[0].filter((pet) => {
-                        return pet.media.photos && pet.description.$t
+                        return pet.media.photos 
+                            && pet.description.$t
+                            && pet.breeds.breed.$t
+                            && pet.name.$t
+                            && pet.id.$t
                     });
                     if (pets.length === 0){
                         alert('it is 0')
@@ -214,10 +234,9 @@ class App extends Component {
                         :
                         <Redirect to="/results" />
                     )}/>
-                    {/* <Route path="/pet/:pet_id" component={SinglePet} /> */}
 
                     <Route path="/pet/:pet_id" render={(props) => (
-                        <SinglePet {...props} addToFaves={this.addToFaves} user={this.state.user} loggedIn={this.state.loggedIn} login={this.login} logout={this.logout} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} pets={this.state.pets}/>
+                        <SinglePet {...props} isFavorite={this.isFavorite} deleteFromFaves={this.deleteFromFaves} addToFaves={this.addToFaves} user={this.state.user} loggedIn={this.state.loggedIn} login={this.login} logout={this.logout} location={this.state.location} breeds={this.state.breeds} getPets={this.getPets} pets={this.state.pets} faves={this.state.faves}/>
                     )} />
 
 

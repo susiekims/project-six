@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router'
 
 class Header extends Component {
     constructor(props) {
@@ -8,11 +9,11 @@ class Header extends Component {
         this.state = {
             user: this.props.user,
             loggedIn: false, 
+            // redirect: this.props.redirect,
         }
     }
 
     componentDidUpdate(oldProps){
-        console.log(this.props.user);
         if (this.state.loggedIn === false && this.props.user !== null){
             this.setState({user: this.props.user,
                 loggedIn: true  
@@ -23,6 +24,7 @@ class Header extends Component {
     render() {
         return (
            <header>
+               <Link exact to='/'>Critter</Link>
                {
                    this.props.user
                    ? <button onClick={this.props.logout}>Log Out</button> 
