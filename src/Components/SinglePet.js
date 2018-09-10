@@ -43,17 +43,21 @@ class singlePets extends Component {
                     xmlToJSON: false
                 }
             }).then(res => {
-                let petInfo = res.data.petfinder.pet
-                this.setState({
-                    animal: {
-                        name: petInfo.name.$t,
-                        breed: petInfo.breeds.breed.$t,
-                        sex: petInfo.sex.$t,
-                        photo: petInfo.media.photos.photo[2].$t,
-                        description: petInfo.description.$t,
-                        id: this.props.match.params.pet_id,
-                    }
-                })
+                if (res.data.petfinder.pet) {
+                    let petInfo = res.data.petfinder.pet
+                    this.setState({
+                        animal: {
+                            name: petInfo.name.$t,
+                            breed: petInfo.breeds.breed.$t,
+                            sex: petInfo.sex.$t,
+                            photo: petInfo.media.photos.photo[2].$t,
+                            description: petInfo.description.$t,
+                            id: this.props.match.params.pet_id,
+                        }
+                    })
+                } else {
+                    alert('sorry, something went wrong');
+                }
             })    
     }
     componentDidUpdate(oldProps){
