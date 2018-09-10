@@ -1,0 +1,85 @@
+.wrapper-landing {
+  width: 60%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box h3 {
+  border-bottom: 1px solid $secondary;
+  width: 100%;
+  padding: 5px 10px;
+  letter-spacing: 4px;
+  font-size: .8rem;
+}
+
+.wrapper-landing p, .wrapper-landing ul {
+  padding: 10px;
+  line-height: 2;
+  letter-spacing: .5px;
+  font-size: .8rem;
+  margin-top: 15px;
+}
+
+.welcome, .instruction {
+  width: calc(50% - 5px);
+  float: left;
+  min-height: 250px;
+  margin-bottom: 10px;
+}
+
+.welcome {
+  margin-right: 10px;
+}
+
+.landing-page {
+  background-color: $tertiary;
+  height: 100vh;
+
+  .search-form input, .search-form select {
+    padding: 5px;
+    appearance: none;
+    border: none;
+    border: 1px solid $secondary;
+    height: 100%;
+    width: calc((100% / 5) - 5px);
+    color: $secondary;
+    margin: 0 2.5px;
+  }
+  
+  .search-form .button {
+    border-radius: 0;
+    color: white;
+    display: block;
+    margin: 10px auto 0 auto;
+  }
+}
+
+
+
+.landing-title {
+  min-width: 300px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.landing-search-form {
+  padding: 0;
+  height: 150px;
+}
+
+.landing-page .search-form {
+  margin: 20px auto;
+}
+
+.landing-tagline {
+  color: $primary;
+  font-size: 1.2rem;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+

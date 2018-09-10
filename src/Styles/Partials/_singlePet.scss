@@ -1,0 +1,50 @@
+.single-pets {
+  margin-top: 100px;
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  img {
+    margin: 20px auto;
+  }
+
+  p {
+    font-size: .8rem;
+    line-height: 2;
+    padding-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+  }
+
+  h4 {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .box {
+    margin-bottom: 100px;
+  }
+
+  .button {
+    margin-right: 5px;
+  }
+}
+
+.wrapper-single-pets {
+  width: 60%;
+  margin: 0 auto; 
+}
+
+.single-pets-content {
+  padding: 20px 50px;
+}
+
+.social-buttons {
+  margin: 0 auto;
+}
+
+.twitter-share-button {
+ float: right;
+}

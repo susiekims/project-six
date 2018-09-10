@@ -10,7 +10,6 @@ class singlePets extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user: this.props.user,
             loggedIn: this.props.loggedIn, 
             animal: {
                 name: '',
@@ -89,27 +88,35 @@ class singlePets extends Component {
 
     render() {
         return (
-            <div className="singlePets">
+            <div className="single-pets">
             <Header user={this.props.user} login={this.props.login} logout={this.props.logout} loggedIn={this.props.loggedIn} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
-                <h1>{this.state.animal.name}</h1>
-                <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
-                <h3>Breed: {this.state.animal.breed}</h3>
-                <h3>Sex: {this.state.animal.sex}</h3>
-                <p>{this.state.animal.description}</p>
-                <a href={`mailto: ?body=Check out this cute pet! www.critter.com/pet/${this.props.match.params.pet_id}&subject=cute pet`}>Email to Friend</a>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="I found this awesome critter available for adoption!" data-hashtags="CritterApp" data-show-count="false">Share this Critter on Twitter</a>
 
-                <Link to='/results'>Back to results</Link>
+                <div className="box wrapper-single-pets">
+                    <h3>{this.state.animal.name}</h3>
+                    <div className="single-pets-content">
+                        <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
+                        <h4>Breed: {this.state.animal.breed}</h4>
+                        <h4>Sex: {this.state.animal.sex}</h4>
+                        <p>{this.state.animal.description}</p>
+                        <Link className="link button" to='/results'>Back to results</Link>
 
-                {
-                    this.props.isFavorite(this.state.animal) ?
-                    <button onClick={() => this.getKey(this.state.animal.id)}>REMOVE FROM FAVES</button>
-                    : this.state.user ? 
-                    <button onClick={() => this.props.addToFaves(this.state.animal)} >ADD TO FAVES</button>
-                    : <button onClick={this.props.login}> LOG IN TO ADD TO FAVES</button>
+                        
+                        <a className="link button" href={`mailto: ?body=Check out this cute pet! www.critter.com/pet/${this.props.match.params.pet_id}&subject=cute pet`}>Email to Friend</a>
 
-                }
-              
+
+
+                        {
+                            this.props.isFavorite(this.state.animal) ?
+                            <button className="button" onClick={() => this.getKey(this.state.animal.id)}>REMOVE FROM FAVES</button>
+                            : this.props.user ? 
+                            <button className="button" onClick={() => this.props.addToFaves(this.state.animal)} >ADD TO FAVES</button>
+                            : <button className="button" onClick={this.props.login}> LOG IN TO ADD TO FAVES</button>
+                        }
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-text="I found this awesome critter available for adoption!" data-hashtags="CritterApp" data-show-count="false">Share this Critter on Twitter</a>
+
+                    </div>
+                </div>
+            
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import firebase from 'firebase';
 import PetCard from './PetCard';
+import { Link } from 'react-router-dom';
 
 
 const auth = firebase.auth();
@@ -34,7 +35,9 @@ class FavePets extends Component {
                     });
                     this.setState({favePets});
                 } else {
-                    alert('you have no fave pets. add some!');
+                    this.setState({
+                        favePets: []
+                    })
                 }
             })
                 
@@ -43,22 +46,22 @@ class FavePets extends Component {
 
     render() {
         return (
-            <div className="FavePets">
-                 <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
+            <div className="fave-pets">
+                <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
 
-                 <h2>FAVE PETS LIST</h2>
-                {
-                    this.state.favePets.map((pet) => {
+                <h2>FAVE PETS LIST</h2>
+                    {
+                        this.state.favePets.map((pet) => {
 
-                       return (
-                    <div>       
-                        <PetCard pet={pet} key={pet.key} />
-                        <button id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
-                    </div>    
-                        )
-                        
-                    })
-                }
+                        return (
+                        <div>       
+                            <PetCard pet={pet} key={pet.key} />
+                            <button className="button" id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
+                        </div>    
+                            )
+                        })
+                    }
+                <Link className="link button" to='/results'>Back to results</Link>
 
 
             </div>
