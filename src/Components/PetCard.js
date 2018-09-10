@@ -19,7 +19,7 @@ class PetCard extends Component {
         return(
             <div className="pet-card">
                 <h2>{this.state.name}</h2>
-                <img src={this.state.photo} />
+                <img src={this.state.photo} alt={`${this.state.name} the ${this.state.breed}`}/>
                 <Link to={`/pet/${this.props.pet.id}`}>
                     READ MOAR
                 </Link>

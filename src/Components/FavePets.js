@@ -33,6 +33,8 @@ class FavePets extends Component {
                         })
                     });
                     this.setState({favePets});
+                } else {
+                    alert('you have no fave pets. add some!');
                 }
             })
                 

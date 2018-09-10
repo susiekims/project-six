@@ -23,17 +23,21 @@ class SearchForm extends Component {
     handleSubmit = (e) => {
         console.log('submitted');
         e.preventDefault();
-        let location = this.state.location;
-        if (this.props.location) {
-            location = this.props.location;
-        } 
-        let type = this.state.type;
-        let age = this.state.age;
-        let sex = this.state.sex;
-        let breed = this.state.breed;
-
-        this.props.getPets(location, type, age, sex, breed);
-        this.setState({ redirect: true })
+        if ( document.getElementById('type').value) {
+            let location = this.state.location;
+            if (this.props.location) {
+                location = this.props.location;
+            } 
+            let type = this.state.type;
+            let age = this.state.age;
+            let sex = this.state.sex;
+            let breed = this.state.breed;
+    
+            this.props.getPets(location, type, age, sex, breed);
+            this.setState({ redirect: true })
+        } else {
+            alert('please choose a type');
+        }
     }
 
     render() {
