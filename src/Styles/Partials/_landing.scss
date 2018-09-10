@@ -1,0 +1,50 @@
+.wrapper-landing {
+  width: 60%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper-landing h3 {
+  border-bottom: 1px solid $secondary;
+  width: 100%;
+  padding: 5px 10px;
+  letter-spacing: 2px;
+  font-size: .8rem;
+}
+
+.wrapper-landing p, .wrapper-landing ul {
+  padding: 10px;
+  line-height: 1.5;
+  letter-spacing: .5px;
+  font-size: .8rem;
+  margin-top: 15px;
+}
+
+.welcome, .instruction {
+  width: calc(50% - 5px);
+  float: left;
+  min-height: 250px;
+  margin-bottom: 10px;
+}
+
+.welcome {
+  margin-right: 10px;
+}
+
+.landing-page {
+  background-color: $tertiary;
+  height: 100vh;
+}
+
+.landing-title {
+  min-width: 300px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.landing-search-form {
+  padding: 0;
+}

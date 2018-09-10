@@ -1,5 +1,40 @@
 
-$baseFont: 'Raleway', sans-serif;
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body {
+  font-size: 62.5%;
+  margin: 0 auto;
+  color: $secondary;
+}
+
+.button {
+  padding: 5px;
+  background-color: $secondary;
+  color: white;
+  border-radius: 5px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.button, .link {
+  border: none;
+  border: 2px outset black;
+}
+
+.box {
+  border: 2px solid $secondary;
+  background-color: white;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
 
 
 

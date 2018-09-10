@@ -1,0 +1,28 @@
+
+.search-form {
+  height: 30px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.search-form input, .search-form select {
+  padding: 5px;
+  appearance: none;
+  border: none;
+  border: 1px solid $secondary;
+  height: 100%;
+  width: calc(100% / 6);
+  color: $secondary;
+  
+}
+
+.search-form .button {
+  border-radius: 0;
+  color: white;
+}
+
+.landing-header button {
+  position: fixed;
+  right: 0px;
+  top: 5px;
+}

@@ -80,7 +80,7 @@ class SearchForm extends Component {
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
-                <input className="search-form-submit" type="submit" value="FIND YO PET"/>
+                <input className="search-form-submit button" type="submit" value="FIND YO PET"/>
                 {
                     this.state.redirect && <Redirect to='/results'/>
                 }
