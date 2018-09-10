@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import firebase from 'firebase';
 import PetCard from './PetCard';
+import { Link } from 'react-router-dom';
 
 
 const auth = firebase.auth();
@@ -34,7 +35,9 @@ class FavePets extends Component {
                     });
                     this.setState({favePets});
                 } else {
-                    alert('you have no fave pets. add some!');
+                    this.setState({
+                        favePets: []
+                    })
                 }
             })
                 
@@ -59,6 +62,7 @@ class FavePets extends Component {
                         
                     })
                 }
+                <Link to='/results'>Back to results</Link>
 
 
             </div>

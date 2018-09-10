@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Styles/App.css';
 import Landing from './Components/Landing';
 import axios from 'axios';
 import Qs from 'qs';
@@ -211,7 +211,6 @@ class App extends Component {
                             id: pet.id.$t
                         })
                     })
-
 
                     this.setState({
                         pets: petsList

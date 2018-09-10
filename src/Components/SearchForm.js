@@ -82,7 +82,7 @@ class SearchForm extends Component {
                 </select>
                 <input type="submit" value="FIND YO PET"/>
                 {
-                     this.state.redirect && <Redirect to='/results'/>
+                    this.state.redirect && <Redirect to='/results'/>
                 }
             </form>
         )

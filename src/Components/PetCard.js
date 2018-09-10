@@ -18,10 +18,10 @@ class PetCard extends Component {
     render() {
         return(
             <div className="pet-card">
-                <h2>{this.state.name}</h2>
-                <img src={this.state.photo} alt={`${this.state.name} the ${this.state.breed}`}/>
+                <h2 className="pet-name">{this.state.name}</h2>
+                <img className="pet-photo" src={this.state.photo} alt={`${this.state.name} the ${this.state.breed}`}/>
                 <Link to={`/pet/${this.props.pet.id}`}>
-                    READ MOAR
+                    Read More
                 </Link>
                 <p>{this.state.breed}</p>
                 
