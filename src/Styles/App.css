@@ -139,6 +139,10 @@ ul {
 html {
   font-family: 'Raleway', sans-serif; }
 
+img {
+  max-width: 100%;
+  display: block; }
+
 .wrapper {
   width: 80%;
   margin: 0 auto; }
@@ -146,7 +150,8 @@ html {
 body {
   font-size: 62.5%;
   margin: 0 auto;
-  color: #23c6b7; }
+  color: #23c6b7;
+  background-color: #c5e2dc; }
 
 .button {
   padding: 5px;
@@ -165,9 +170,6 @@ body {
   border: 2px solid #23c6b7;
   background-color: white; }
 
-.landing-search-form {
-  padding: 10px 0; }
-
 h1, h2, h3, h4 {
   font-weight: normal; }
 
@@ -182,12 +184,14 @@ h1, h2, h3, h4 {
   border: none;
   border: 1px solid #23c6b7;
   height: 100%;
-  width: calc(100% / 6);
-  color: #23c6b7; }
+  width: calc((100% / 6) - 5px);
+  color: #23c6b7;
+  margin-right: 5px; }
 
 .search-form .button {
   border-radius: 0;
-  color: white; }
+  color: white;
+  margin-right: 0; }
 
 .landing-header button {
   position: fixed;
@@ -195,11 +199,26 @@ h1, h2, h3, h4 {
   top: 5px; }
 
 header {
-  width: 95%;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%); }
+
+.main-header {
+  background-color: #c5e2dc;
+  padding: 10px 0 20px 0px; }
+  .main-header .search-form {
+    width: 60%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); }
+  .main-header .header-button {
+    float: right;
+    margin-right: 20px; }
+  .main-header .header-link {
+    margin-left: 20px; }
 
 .wrapper-landing {
   width: 60%;
@@ -208,16 +227,16 @@ header {
   top: 50%;
   transform: translate(-50%, -50%); }
 
-.wrapper-landing h3 {
+.box h3 {
   border-bottom: 1px solid #23c6b7;
   width: 100%;
   padding: 5px 10px;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   font-size: .8rem; }
 
 .wrapper-landing p, .wrapper-landing ul {
   padding: 10px;
-  line-height: 1.5;
+  line-height: 2;
   letter-spacing: .5px;
   font-size: .8rem;
   margin-top: 15px; }
@@ -234,6 +253,20 @@ header {
 .landing-page {
   background-color: #c5e2dc;
   height: 100vh; }
+  .landing-page .search-form input, .landing-page .search-form select {
+    padding: 5px;
+    appearance: none;
+    border: none;
+    border: 1px solid #23c6b7;
+    height: 100%;
+    width: calc((100% / 5) - 5px);
+    color: #23c6b7;
+    margin: 0 2.5px; }
+  .landing-page .search-form .button {
+    border-radius: 0;
+    color: white;
+    display: block;
+    margin: 10px auto 0 auto; }
 
 .landing-title {
   min-width: 300px;
@@ -242,4 +275,89 @@ header {
   text-align: center; }
 
 .landing-search-form {
-  padding: 0; }
+  padding: 0;
+  height: 150px; }
+
+.landing-page .search-form {
+  margin: 20px auto; }
+
+.landing-tagline {
+  color: #ff506e;
+  font-size: 1.2rem;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  margin-bottom: 10px; }
+
+.pet-card {
+  min-width: 300px;
+  width: 31%;
+  height: 370px;
+  float: left;
+  margin-bottom: 20px;
+  padding-bottom: 20px; }
+
+.pet-photo {
+  width: 80%;
+  height: 70%;
+  margin: 15px auto;
+  background-size: cover;
+  background-position: center; }
+
+.pet-card-description {
+  width: 80%;
+  margin: 0 auto; }
+  .pet-card-description .button {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center; }
+  .pet-card-description p {
+    font-size: .8rem;
+    letter-spacing: .05rem; }
+
+.pet-card-description * {
+  display: block; }
+
+.result-page {
+  background-color: #c5e2dc; }
+
+.wrapper-results {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 100px; }
+
+.wrapper-results .pet-card:nth-child(3n + 2) {
+  margin: 0 3.5%; }
+
+.single-pets {
+  margin-top: 100px; }
+  .single-pets h3 {
+    font-size: 2rem; }
+  .single-pets img {
+    margin: 20px auto; }
+  .single-pets p {
+    font-size: .8rem;
+    line-height: 2;
+    padding-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 0.05rem; }
+  .single-pets h4 {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 10px; }
+  .single-pets .box {
+    margin-bottom: 100px; }
+  .single-pets .button {
+    margin-right: 5px; }
+
+.wrapper-single-pets {
+  width: 60%;
+  margin: 0 auto; }
+
+.single-pets-content {
+  padding: 20px 50px; }
+
+.social-buttons {
+  margin: 0 auto; }
+
+.twitter-share-button {
+  float: right; }

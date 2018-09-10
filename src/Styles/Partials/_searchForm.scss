@@ -11,14 +11,15 @@
   border: none;
   border: 1px solid $secondary;
   height: 100%;
-  width: calc(100% / 6);
+  width: calc((100% / 6) - 5px);
   color: $secondary;
-  
+  margin-right: 5px;
 }
 
 .search-form .button {
   border-radius: 0;
   color: white;
+  margin-right: 0;
 }
 
 .landing-header button {

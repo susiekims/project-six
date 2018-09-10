@@ -1,0 +1,39 @@
+
+
+.pet-card {
+  min-width: 300px;
+  width: 31%;
+  height: 370px;
+  float: left;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.pet-photo {
+  width: 80%;
+  height: 70%;
+  margin: 15px auto;
+  background-size: cover;
+  background-position: center;
+}
+
+.pet-card-description {
+  width: 80%;
+  margin: 0 auto;
+
+  .button {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  p {
+    font-size: .8rem;
+    letter-spacing: .05rem;
+  }
+
+}
+
+.pet-card-description * {
+  display: block;
+}

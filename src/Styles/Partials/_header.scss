@@ -1,10 +1,31 @@
 
 
-
 header {
-  width: 95%;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.main-header {
+  background-color: $tertiary;
+  padding: 10px 0 20px 0px;
+  
+  .search-form {
+    width: 60%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .header-button {
+    float: right;
+    margin-right: 20px;
+  }
+
+  .header-link {
+    margin-left: 20px;
+  }
 }
