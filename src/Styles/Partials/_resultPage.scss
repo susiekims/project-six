@@ -85,11 +85,17 @@
 
 @media (max-width: 480px) {
   
-  // .wrapper-results {
-  //   width: 100%;
-  //   margin: 0 auto;
-  //   padding-top: 5rem;
-  // }
+  .wrapper-results {
+    width: 77%;
+  }
+
+  .wrapper-results .pet-card {
+    min-width: 60%;
+  }
+
+  .result-page .pet-card .button {
+    width: 50%;
+  }
 
 }
 
