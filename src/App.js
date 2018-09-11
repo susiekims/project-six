@@ -10,6 +10,11 @@ import userLocation from './userLocation';
 import config from './firebase';
 import firebase from 'firebase';
 import FavePets from './Components/FavePets'
+// ES6 Modules or TypeScript
+import swal from 'sweetalert2'
+
+// CommonJS
+// const swal = require('sweetalert2')
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
@@ -94,17 +99,34 @@ class App extends Component {
     }
 
     logout = () => {
-        let signOut = window.confirm('are you sure you wanna sign out?');
-        if (signOut) {
-            alert('signed out!');
-            auth.signOut().then(()=> {
-                this.setState({
-                    user: null,
-                    loggedIn: false
-                });
-            })
-        }
+        // let signOut = window.confirm('are you sure you wanna sign out?');
+        swal({
+            title: 'Do you want to logout?',
+            // text: 'Do you want to delete this critter?',
+            type: 'error',
+            confirmButtonText: 'LOG OUT'
+        })
+        .then((res) => {
+           let logout = res.value 
+            if (logout) {
+                // alert('signed out!');
+                swal({
+                    title: 'Logged out!',
+                    // text: 'Do you want to delete this critter?',
+                    type: 'success',
+                    confirmButtonText: 'Success!'
+                })
+                auth.signOut().then(() => {
+                    this.setState({
+                        user: null,
+                        loggedIn: false
+                    });
+                })
+            }
+        }) 
+    
     }
+    
 
     login = () => {
         auth.signInWithPopup(provider).then(res => {
@@ -135,11 +157,29 @@ class App extends Component {
     }
 
     deleteFromFaves = (e) => {
-        const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
-        if (confirmDelete) {
-            firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
-            alert('removed from faves!');
-        }
+        const target = Object.assign(e.target)
+        swal({
+            title: 'Do you want to delete this critter?',
+            // text: 'Do you want to delete this critter?',
+            type: 'warning',
+            confirmButtonText: 'Delete this critter'
+        })
+
+        .then((res) => {
+            console.log(target);
+            if (res.value) {
+                swal(
+                    'Deleted!'
+                )
+                firebase.database().ref(`${this.state.user.uid}/faves/${target.id}`).remove();
+            }
+        })
+
+        // const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
+        // if (confirmDelete) {
+        //     firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
+            
+        // }
     }
 
 
@@ -261,6 +301,7 @@ class App extends Component {
                 </div>
             </Router>
         );
+
     }
 }
 
