@@ -472,7 +472,6 @@ input[type=checkbox] {
   .wrapper-results .pet-card:nth-child(even) {
     margin: 10px 0; } }
 
-
 @media (max-width: 480px) {
   .wrapper-results {
     width: 77%; }
@@ -484,32 +483,28 @@ input[type=checkbox] {
 .loader {
   margin: 0 auto; }
 
-
-.single-pets {
-  margin-top: 100px; }
-  .single-pets h3 {
+.wrapper-single-pets {
+  width: 60%;
+  margin: 100px auto; }
+  .wrapper-single-pets h3 {
     font-size: 2rem; }
-  .single-pets img {
+  .wrapper-single-pets img {
     margin: 20px auto; }
-  .single-pets p {
+  .wrapper-single-pets p {
     font-size: .8rem;
     line-height: 2;
     padding-bottom: 20px;
     font-weight: 500;
     letter-spacing: 0.05rem; }
-  .single-pets h4 {
+  .wrapper-single-pets h4 {
     text-align: center;
     font-size: 1rem;
     margin-bottom: 10px; }
-  .single-pets .box {
+  .wrapper-single-pets .box {
     margin-bottom: 100px; }
-  .single-pets .button {
+  .wrapper-single-pets .button {
     margin-right: 5px;
     box-shadow: 5px 5px 5px rgba(197, 226, 220, 0.5); }
-
-.wrapper-single-pets {
-  width: 60%;
-  margin: 0 auto; }
 
 .single-pets-content {
   padding: 20px 50px; }
