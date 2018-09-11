@@ -1,5 +1,6 @@
-.single-pets {
-  margin-top: 100px;
+.wrapper-single-pets {
+  width: 60%;
+  margin: 100px auto;
 
   h3 {
     font-size: 2rem;
@@ -33,10 +34,6 @@
   }
 }
 
-.wrapper-single-pets {
-  width: 60%;
-  margin: 0 auto; 
-}
 
 .single-pets-content {
   padding: 20px 50px;
