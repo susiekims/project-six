@@ -432,6 +432,14 @@ input[type=checkbox] {
   .wrapper-results .pet-card:nth-child(even) {
     margin: 10px 0; } }
 
+@media (max-width: 480px) {
+  .wrapper-results {
+    width: 77%; }
+  .wrapper-results .pet-card {
+    min-width: 60%; }
+  .result-page .pet-card .button {
+    width: 50%; } }
+
 .single-pets {
   margin-top: 100px; }
   .single-pets h3 {
