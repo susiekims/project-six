@@ -50,7 +50,6 @@ class FavePets extends Component {
                         
                         {
                             this.state.favePets.map((pet) => {
-
                             return (
                             <div className="saved-pet">        
                                 <PetCard pet={pet} key={pet.key} />

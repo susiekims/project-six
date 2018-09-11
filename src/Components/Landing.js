@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
     render() {
@@ -10,12 +11,17 @@ class Landing extends Component {
                     this.props.user
                     ? <button className="button" onClick={this.props.logout}>Log Out</button> 
                     : <button className="button" onClick={this.props.login}>Log In</button>
-                }   
+                } 
+                  {
+                    this.props.user && <Link className="link button header-button" to='/faves'>Faves</Link>
+                }  
                 </header>
 
         <div className="wrapper-landing"> 
                 <div className="landing-title">
                     <img src={require("./critter-logo.png")} className="landing-logo" />
+                    {/* <img src={require("./glitter-background.gif")} className="glitter" /> */}
+
                     {/* <h2 className="landing-tagline">Alternative Pets for Alternative People</h2> */}
                 </div>
 
