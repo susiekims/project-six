@@ -330,6 +330,40 @@ header {
 .wrapper-results .pet-card:nth-child(3n + 2) {
   margin: 0 3.5%; }
 
+@media (max-width: 1210px) {
+  .wrapper-results {
+    width: 80%; }
+  .wrapper-results .pet-card:nth-child(odd) {
+    margin: 10px 0;
+    margin-right: 3%; }
+  .wrapper-results .pet-card:nth-child(even) {
+    margin: 10px 0;
+    margin-left: 3%; }
+  .result-page .pet-card {
+    width: 47%; } }
+
+@media (max-width: 1000px) {
+  .wrapper-results {
+    width: 80%; }
+  .result-page .pet-card {
+    width: 47%; }
+  .wrapper-results .pet-card:nth-child(odd) {
+    margin: 10px 0;
+    margin-right: 3%; }
+  .wrapper-results .pet-card:nth-child(even) {
+    margin: 10px 0;
+    margin-left: 3%; } }
+
+@media (max-width: 800px) {
+  .wrapper-results {
+    width: 70%; }
+  .result-page .pet-card {
+    width: 100%; }
+  .wrapper-results .pet-card:nth-child(odd) {
+    margin: 10px 0; }
+  .wrapper-results .pet-card:nth-child(even) {
+    margin: 10px 0; } }
+
 .single-pets {
   margin-top: 100px; }
   .single-pets h3 {
