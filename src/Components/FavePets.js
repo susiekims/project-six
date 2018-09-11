@@ -4,9 +4,7 @@ import firebase from 'firebase';
 import PetCard from './PetCard';
 import { Link } from 'react-router-dom';
 
-
 const auth = firebase.auth();
-
 
 class FavePets extends Component {
     constructor(props) {
@@ -16,8 +14,6 @@ class FavePets extends Component {
             favePets: []
         }
     }
-
-
     componentDidMount = () => {
         auth.onAuthStateChanged((user) => {
             let faveRef = firebase.database().ref(`${user.uid}/faves`); 
@@ -46,29 +42,25 @@ class FavePets extends Component {
 
     render() {
         return (
-            <div className="fave-pets">
+            <div className="fave-pets clearfix">
                 <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
 
-                <h2>FAVE PETS LIST</h2>
+                <h2 className="fave-pets-heading">FAVE PETS LIST</h2>
                     {
                         this.state.favePets.map((pet) => {
 
                         return (
-                        <div>       
+                        <div className="saved-pet">        
                             <PetCard pet={pet} key={pet.key} />
-                            <button className="button" id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
+                            <button className="button delete-button" id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
                         </div>    
                             )
                         })
                     }
-                <Link className="link button" to='/results'>Back to results</Link>
-
-
+                <Link className="link button fave-pets-link" to='/results'>Back to results</Link>
             </div>
         )
     }
-
 }
-
 
 export default FavePets;
