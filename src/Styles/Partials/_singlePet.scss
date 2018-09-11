@@ -29,6 +29,7 @@
 
   .button {
     margin-right: 5px;
+    box-shadow: 5px 5px 5px rgba(197, 226, 220, 0.5)
   }
 }
 
@@ -46,5 +47,54 @@
 }
 
 .twitter-share-button {
- float: right;
+  float: right;
+}
+
+
+@media (max-width: 1100px){
+  .twitter-share-button {
+    float: none;
+    display: block;
+    margin-top: 40px;
+  }
+}
+
+
+@media (max-width: 850px){
+  .wrapper-single-pets {
+    width: 80%;
+  }
+}
+
+
+@media (max-width: 650px){
+  .wrapper-single-pets {
+    width: 90%;
+  }
+
+  .single-pets-content {
+    padding: 10px 20px;
+  }
+
+  .wrapper-single-pets .button {
+    display: block;
+    width: 40%;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px){
+  .wrapper-single-pets {
+    width: 95%;
+  }
+
+  .wrapper-single-pets .button {
+    width: 45%;
+  }
+
+  .single-pets-content {
+    padding: 10px;
+  }
 }
