@@ -19,7 +19,7 @@ class PetCard extends Component {
     render() {
         return(
             <div className="pet-card box">
-                <h3 className="pet-name">{this.state.name}</h3>
+                <h3 className="pet-name">{this.state.name}<i class="fas fa-times"></i></h3>
                 <div className="pet-photo" style={{backgroundImage: `url(${this.state.photo})`}}></div>
                 <div className="pet-card-description">
                     <p className="pet-breed">Breed: {this.state.breed}</p>
