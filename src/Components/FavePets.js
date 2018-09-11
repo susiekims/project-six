@@ -42,22 +42,26 @@ class FavePets extends Component {
 
     render() {
         return (
-            <div className="fave-pets clearfix">
+            <div>
                 <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
+                <div className="fave-pets-body">
+                    <h2 className="fave-pets-heading">FAVE PETS LIST</h2>
+                    <div className="fave-pets clearfix">
+                        
+                        {
+                            this.state.favePets.map((pet) => {
 
-                <h2 className="fave-pets-heading">FAVE PETS LIST</h2>
-                    {
-                        this.state.favePets.map((pet) => {
-
-                        return (
-                        <div className="saved-pet">        
-                            <PetCard pet={pet} key={pet.key} />
-                            <button className="button delete-button" id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
-                        </div>    
-                            )
-                        })
-                    }
-                <Link className="link button fave-pets-link" to='/results'>Back to results</Link>
+                            return (
+                            <div className="saved-pet">        
+                                <PetCard pet={pet} key={pet.key} />
+                                <button className="button delete-button" id={pet.key} onClick={this.props.deleteFromFaves}>DELETE FROM FAVES</button>
+                            </div>    
+                                )
+                            })
+                        }
+                        <Link className="link button fave-pets-link" to='/results'>Back to results</Link>
+                    </div>
+                </div>
             </div>
         )
     }
