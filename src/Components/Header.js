@@ -36,7 +36,7 @@ class Header extends Component {
                 }
             <label className="dropdown-button button" htmlFor="dropdown"><i class="fas fa-search"></i></label>
             <input type="checkbox" id="dropdown"/>
-            <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
+            <SearchForm startLoader={this.props.startLoader} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
         </div>
         </header>
         )

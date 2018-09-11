@@ -21,19 +21,22 @@ input.hamburger {
 .header-logo {
   width: 120px;
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .dropdown-button {
-  padding: 5px;
-  background-color: $secondary;
-  color: white;
-  border-radius: 5px;
   display: none;
 }
 
 input[type=checkbox] {
   visibility: hidden;
+}
+
+.glitter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
 }
 
 .main-header {
@@ -54,24 +57,25 @@ input[type=checkbox] {
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .dropdown-button {
     float: right;
     display: block;
     width: 30px;
-    height: 30px;
+    height: 25px;
+    background-color: $secondary;
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
   }
 
-  
-  
   .main-header {
     input[type=submit] {
-      box-shadow: 0px 20px $tertiary;
     }
     
     input[type=checkbox]:checked ~ .search-form {
       display: block;
-      top: 20px;
+      top: 50px;
     }
 
     .search-form {
@@ -87,7 +91,7 @@ input[type=checkbox] {
       width: 80%;
       text-align: center;
       margin: 0 auto;
-      // box-shadow: 0px 5px 10px 10px $primary;
+      box-shadow: 5px 5px 10px $primary;
 
     }
 

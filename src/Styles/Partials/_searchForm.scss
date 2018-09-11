@@ -16,6 +16,13 @@
   margin-right: 5px;
 }
 
+.search-form select {
+  background-image: url(../Components/angle-down-solid.svg);
+  background-repeat: no-repeat;
+  background-position: 90%;
+  background-size: 0.5rem;
+}
+
 .search-form .button {
   border-radius: 0;
   color: white;
