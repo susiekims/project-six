@@ -274,7 +274,7 @@ input[type=checkbox] {
     box-shadow: 5px 5px 10px #ff506e; } }
 
 .landing-page {
-  background-color: #c5e2dc;
+  background-image: url(../Components/glitter-background.gif);
   height: 100vh;
   width: 100vw; }
   .landing-page .search-form input, .landing-page .search-form select {
@@ -472,7 +472,6 @@ input[type=checkbox] {
   .wrapper-results .pet-card:nth-child(even) {
     margin: 10px 0; } }
 
-
 @media (max-width: 480px) {
   .wrapper-results {
     width: 77%; }
@@ -483,7 +482,6 @@ input[type=checkbox] {
 
 .loader {
   margin: 0 auto; }
-
 
 .single-pets {
   margin-top: 100px; }
