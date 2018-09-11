@@ -20,7 +20,7 @@ class Landing extends Component {
         <div className="wrapper-landing"> 
                 <div className="landing-title">
                     <img src={require("./critter-logo.png")} className="landing-logo" />
-                    {/* <img src={require("./glitter-background.gif")} className="glitter" /> */}
+                    <img src={require("./glitter-background.gif")} className="glitter" />
 
                     {/* <h2 className="landing-tagline">Alternative Pets for Alternative People</h2> */}
                 </div>

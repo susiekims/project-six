@@ -1,7 +1,7 @@
 
 .landing-page {
   // background-color: $tertiary;
-  background-image: url(../Components/glitter-background.gif);
+  // background-image: url(../Components/glitter-background.gif);
   height: 100vh;
   width: 100vw;
 
@@ -86,6 +86,14 @@
   text-align: center;
   width: 80%;
   padding-bottom: 25px;
+  position: relative;
+}
+
+.glitter {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .landing-logo {
