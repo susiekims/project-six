@@ -4,13 +4,40 @@ header {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+}
+
+input.hamburger {
+  visibility: hidden;
+}
+
+
+.header-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  height: 60px;
+  padding: 15px 0px;
+}
+
+.header-logo {
+  width: 120px;
+  float: left;
+  margin-right: 10px;
+}
+
+.dropdown-button {
+  padding: 5px;
+  background-color: $secondary;
+  color: white;
+  border-radius: 5px;
+  display: none;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
 }
 
 .main-header {
   background-color: $tertiary;
-  padding: 10px 0 20px 0px;
   
   .search-form {
     width: 60%;
@@ -22,10 +49,47 @@ header {
 
   .header-button {
     float: right;
-    margin-right: 20px;
+    margin-left: 10px;
   }
 
-  .header-link {
-    margin-left: 20px;
+}
+
+@media (max-width: 700px) {
+  .dropdown-button {
+    float: right;
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  
+  
+  .main-header {
+    input[type=submit] {
+      box-shadow: 0px 20px $tertiary;
+    }
+    
+    input[type=checkbox]:checked ~ .search-form {
+      display: block;
+      top: 20px;
+    }
+
+    .search-form {
+      margin: 30px auto 0 auto;
+      width: 100%;
+      position: absolute;
+      top: -250px;
+      transition: all 0.3s ease-out;
+    }
+
+    .search-form input, .search-form select {
+      display: block;
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+      // box-shadow: 0px 5px 10px 10px $primary;
+
+    }
+
   }
 }

@@ -177,6 +177,7 @@ class App extends Component {
             }
         }).then((res) => {
             if(res.data.petfinder.pets.pet) {
+                console.log(res.data.petfinder.pets)
                 let petsArray = Object.values(res.data.petfinder.pets)
                 if (petsArray[0].length) {
                     let pets = petsArray[0].filter((pet) => {
@@ -185,6 +186,7 @@ class App extends Component {
                             && pet.breeds.breed.$t
                             && pet.name.$t
                             && pet.id.$t
+                            && pet.age.$t
                     });
                     if (pets.length === 0){
                         alert('it is 0')
@@ -195,7 +197,9 @@ class App extends Component {
                             breed: pet.breeds.breed.$t,
                             sex: pet.sex.$t,
                             photo: pet.media.photos.photo[2].$t,
-                            id: pet.id.$t
+                            id: pet.id.$t,
+                            age: pet.age.$t
+
                         })
                     })
                     this.setState({pets: petsList});
@@ -208,7 +212,8 @@ class App extends Component {
                             breed: pet.breeds.breed.$t,
                             sex: pet.sex.$t,
                             photo: pet.media.photos.photo[2].$t,
-                            id: pet.id.$t
+                            id: pet.id.$t,
+                            age: pet.age.$t
                         })
                     })
 
@@ -227,11 +232,18 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Route exact path="/" render={(props) => (
+                    {/* <Route exact path="/" render={(props) => (
                         this.state.pets.length === 0 ?
                         <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
                         :
                         <Redirect to="/results" />
+                    )}/> */}
+
+                      <Route exact path="/" render={(props) => (
+                        // this.state.pets.length === 0 ?
+                        <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
+                        // :
+                        // <Redirect to="/results" />
                     )}/>
 
                     <Route path="/pet/:pet_id" render={(props) => (

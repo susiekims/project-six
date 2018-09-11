@@ -11,7 +11,8 @@ class PetCard extends Component {
             breed: this.props.pet.breed,
             sex: this.props.pet.sex,
             photo: this.props.pet.photo,
-            id: this.props.pet.id
+            id: this.props.pet.id,
+            age: this.props.pet.age
         }
     }
 
