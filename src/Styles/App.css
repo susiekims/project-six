@@ -189,6 +189,12 @@ h1, h2, h3, h4 {
   color: #23c6b7;
   margin-right: 5px; }
 
+.search-form select {
+  background-image: url(../Components/angle-down-solid.svg);
+  background-repeat: no-repeat;
+  background-position: 90%;
+  background-size: 0.5rem; }
+
 .search-form .button {
   border-radius: 0;
   color: white;
@@ -310,6 +316,9 @@ input[type=checkbox] {
 .welcome {
   margin-right: 10px; }
 
+.welcome i, .instruction i, .landing-search-form i {
+  float: right; }
+
 .landing-search-form {
   padding: 0;
   min-width: 300px;
@@ -365,6 +374,9 @@ input[type=checkbox] {
   margin-bottom: 20px;
   padding-bottom: 20px;
   box-shadow: 5px 10px 5px rgba(35, 198, 183, 0.5); }
+
+.pet-card i {
+  float: right; }
 
 .pet-photo {
   width: 80%;
