@@ -1,5 +1,5 @@
 
-.fave-pets {
+.fave-pets-body {
   width: 80%;
   margin: 0 auto;
   margin-top: 100px;
@@ -7,9 +7,10 @@
 
 .fave-pets-heading {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 50px;
 }
 
 .saved-pet .pet-card {
@@ -31,13 +32,13 @@
   box-shadow: 5px 10px 5px rgba(35, 198, 183, 0.5);
 }
 
-.saved-pet:nth-child(3n + 1) {
+.saved-pet:nth-child(3n + 2) {
   margin: 0 3.5%;
 }
 
 .delete-button {
   display: block;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .fave-pets-link {
@@ -46,6 +47,10 @@
   clear: both;
   margin: 50px auto;
   text-align: center;
+}
+
+.saved-pet .pet-card-description .button {
+  margin-top: 15px;
 }
 
 
@@ -69,7 +74,7 @@
 
 @media (max-width: 800px){
 
-  .fave-pets {
+  .fave-pets-body {
     width: 70%;
   }
 
@@ -94,8 +99,12 @@
 }
 
 @media (max-width: 550px){
-  .fave-pets {
+  .fave-pets-body {
     width: 90%;
+  }
+
+  .delete-button {
+    width: 40%;
   }
 
 }
