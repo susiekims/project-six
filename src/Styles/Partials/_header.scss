@@ -55,31 +55,31 @@ input[type=checkbox] {
 }
 
 @media (max-width: 700px) {
-  .main-header .search-form {
-    display: none;
-  }
-
   .dropdown-button {
     float: right;
     display: block;
-    width: 50px;
-    height: 100%;
+    width: 30px;
+    height: 30px;
   }
 
-  input[type=checkbox]:checked ~ .search-form {
-    display: block
-  }
-
-  input[type=checkbox]:checked + .main-header{
-    height: 275px;
-  }
-
+  
+  
   .main-header {
+    input[type=submit] {
+      box-shadow: 0px 20px $tertiary;
+    }
     
+    input[type=checkbox]:checked ~ .search-form {
+      display: block;
+      top: 20px;
+    }
+
     .search-form {
       margin: 30px auto 0 auto;
       width: 100%;
-      background: $tertiary;
+      position: absolute;
+      top: -250px;
+      transition: all 0.3s ease-out;
     }
 
     .search-form input, .search-form select {
@@ -87,6 +87,8 @@ input[type=checkbox] {
       width: 80%;
       text-align: center;
       margin: 0 auto;
+      // box-shadow: 0px 5px 10px 10px $primary;
+
     }
 
   }

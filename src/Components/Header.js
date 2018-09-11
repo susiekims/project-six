@@ -32,9 +32,9 @@ class Header extends Component {
                     : <button className="button header-button" onClick={this.props.login}>Log In</button>
                 }
                 {
-                    this.props.user && <Link className="link button header-button" to='/faves'>Fave Pets</Link>
+                    this.props.user && <Link className="link button header-button" to='/faves'>Faves</Link>
                 }
-            <label className="dropdown-button" htmlFor="dropdown">Search</label>
+            <label className="dropdown-button button" htmlFor="dropdown"><i class="fas fa-search"></i></label>
             <input type="checkbox" id="dropdown"/>
             <SearchForm location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
         </div>

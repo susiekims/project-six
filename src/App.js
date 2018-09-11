@@ -232,11 +232,18 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Route exact path="/" render={(props) => (
+                    {/* <Route exact path="/" render={(props) => (
                         this.state.pets.length === 0 ?
                         <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
                         :
                         <Redirect to="/results" />
+                    )}/> */}
+
+                      <Route exact path="/" render={(props) => (
+                        // this.state.pets.length === 0 ?
+                        <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
+                        // :
+                        // <Redirect to="/results" />
                     )}/>
 
                     <Route path="/pet/:pet_id" render={(props) => (

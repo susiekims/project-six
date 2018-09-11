@@ -58,13 +58,6 @@
   margin-right: 10px;
 }
 
-.landing-title {
-  min-width: 300px;
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .landing-search-form {
   padding: 0;
   min-width: 300px;
@@ -97,15 +90,20 @@
 
 
 @media (max-width: 900px) {
-  .welcome, .instruction {
+  .landing-logo {
+    width: 125px;
+    padding: 0;
+  }
+  .welcome, .instruction,  .landing-search-form {
     width: 100%;
     clear: both;
     min-height: auto;
-    min-width: 300px;
+    min-width: 200px;
     margin-bottom: 10px;
   }
   .wrapper-landing {
     margin-bottom: 50px;
+    width: 90%;
   }
 }
 
