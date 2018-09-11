@@ -46,6 +46,10 @@ class FavePets extends Component {
                 <Header user={this.props.user} login={this.props.login} logout={this.props.logout} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets} />
 
                 <h2 className="fave-pets-heading">FAVE PETS LIST</h2>
+
+                    {
+                        this.state.favePets.length === 0 &&  <img src={require("./loader.gif")} className="loader" />    
+                    }
                     {
                         this.state.favePets.map((pet) => {
 
