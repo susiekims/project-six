@@ -230,11 +230,6 @@ input.hamburger {
 input[type=checkbox] {
   visibility: hidden; }
 
-.glitter {
-  position: absolute;
-  top: 0;
-  left: 0; }
-
 .main-header {
   background-color: #c5e2dc; }
   .main-header .search-form {
@@ -274,7 +269,6 @@ input[type=checkbox] {
     box-shadow: 5px 5px 10px #ff506e; } }
 
 .landing-page {
-  background-color: #c5e2dc;
   height: 100vh;
   width: 100vw; }
   .landing-page .search-form input, .landing-page .search-form select {
@@ -342,7 +336,14 @@ input[type=checkbox] {
   margin: 0 auto;
   text-align: center;
   width: 80%;
-  padding-bottom: 25px; }
+  padding-bottom: 25px;
+  position: relative; }
+
+.glitter {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 .landing-logo {
   width: 250px;
