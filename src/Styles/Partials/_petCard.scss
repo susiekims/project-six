@@ -1,12 +1,13 @@
 
 
-.pet-card {
+.result-page .pet-card {
   min-width: 300px;
   width: 31%;
   height: 370px;
   float: left;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  box-shadow: 5px 10px 5px rgba(35, 198, 183, 0.5);
 }
 
 .pet-photo {

@@ -26,7 +26,6 @@ class PetCard extends Component {
                     <Link className="link button" to={`/pet/${this.props.pet.id}`}>
                         Read More
                     </Link> 
-            
                 </div>
             </div>
         )
