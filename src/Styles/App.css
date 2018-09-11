@@ -328,6 +328,36 @@ header {
 .wrapper-results .pet-card:nth-child(3n + 2) {
   margin: 0 3.5%; }
 
+@media (max-width: 1210px) {
+  .wrapper-results {
+    width: 75%;
+    margin-left: 10rem; }
+  .wrapper-results .pet-card:nth-child(1n + 1) {
+    margin: 3% 3.5%; } }
+
+@media (max-width: 1000px) {
+  .wrapper-results {
+    width: 80%;
+    margin-left: 7.5rem; } }
+
+@media (max-width: 872px) {
+  .wrapper-results {
+    width: 75%;
+    margin-left: 10rem; } }
+
+@media (max-width: 600px) {
+  .wrapper-results {
+    width: 65%;
+    margin-left: 7rem; } }
+
+@media (max-width: 480px) {
+  .wrapper-results {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 5rem; }
+  header {
+    width: 100%; } }
+
 .single-pets {
   margin-top: 100px; }
   .single-pets h3 {
