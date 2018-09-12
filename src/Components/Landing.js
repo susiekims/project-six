@@ -28,14 +28,14 @@ class Landing extends Component {
             <div className="welcome-container clearfix">  
                 <div className="welcome box">
                     <h3>welcome<i class="fas fa-times"></i></h3>
-                    <p>You're not just anyone. You're you. And you need a pet that's as unique as you. Welcome to CRITTER, where you can find the perfect adoptable pet in your area thats NOT a boring ol' dog or cat.</p>
+                    <p>Critter is an App to connect alternative pets to alternative people; You're a unqiue individual and deserve a pet to compliment that. Narrow down your search with Critter and find the perfect adoptable pet in your area!</p>
                 </div>
                 <div className="instruction box">
                     <h3>how it works<i class="fas fa-times"></i></h3>
                     <ul>
-                        <li>Step One: Make an account! You don't need an account if you just want to browse, but if you want to save the pet to your faves you're going to need an account!</li>
-                        <li>Step Two: Search for pets! Enter your location or allow your browser to detect your location</li>
-                        <li>Step three: Share the links to your pets with your friends or add them to your faves so you can go back to them later!</li>
+                        <li>Step One: Browse freely or log in with Google to save pets to your Faves section and view them all together!</li>
+                        <li>Step Two: Search for pets in your area by entering your city and province/state in the search bar!</li>
+                        <li>Step three: Click "Read More" on your Faves section for further info about each animal, email them to a friend, or tweet about your new potential pet!</li>
                     </ul>
                 </div>  
             </div>
