@@ -390,6 +390,7 @@ input[type=checkbox] {
   .landing-search-form {
     height: 300px; }
   .landing-page .search-form input, .landing-page .search-form select {
+    background-color: white;
     text-align: center;
     display: block;
     width: 100%;
@@ -411,8 +412,7 @@ input[type=checkbox] {
   width: 80%;
   height: 70%;
   margin: 15px auto;
-  background-size: cover;
-  background-position: center; }
+  object-fit: cover; }
 
 .pet-card-description {
   width: 80%;

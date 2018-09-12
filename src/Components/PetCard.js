@@ -20,7 +20,8 @@ class PetCard extends Component {
         return(
             <div className="pet-card box">
                 <h3 className="pet-name">{this.state.name}<i class="fas fa-times"></i></h3>
-                <div className="pet-photo" style={{backgroundImage: `url(${this.state.photo})`}}></div>
+                {/* <div className="pet-photo" style={{backgroundImage: `url(${this.state.photo})`}}></div> */}
+                <img className="pet-photo" src={`${this.state.photo}`} alt={`${this.state.name} the ${this.state.breed}`}/>
                 <div className="pet-card-description">
                     <p className="pet-breed">Breed: {this.state.breed}</p>
                     <p className="pet-sex">Sex: {this.state.sex}</p>
