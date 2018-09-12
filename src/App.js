@@ -264,7 +264,7 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <Route exact path="/" render={(props) => (
-                        <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
+                        <Landing {...props} faves={this.state.faves} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
                     )}/>
 
                     <Route path="/pet/:pet_id" render={(props) => (

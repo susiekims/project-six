@@ -128,7 +128,7 @@ class singlePets extends Component {
                             <button className="button" onClick={() => this.props.addToFaves(this.state.animal)} >ADD TO FAVES</button>
                             : <button className="button" onClick={this.props.login}> LOG IN TO ADD TO FAVES</button>
                         }
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-text="I found this awesome critter available for adoption!" data-hashtags="CritterApp" data-show-count="false">Share this Critter on Twitter</a>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="I found this awesome critter available for adoption!" data-hashtags="CritterApp" data-show-count="false">Share this Critter on Twitter</a>
 
                     </div>
                 </div>
