@@ -18,8 +18,9 @@
   width: 80%;
   height: 70%;
   margin: 15px auto;
-  background-size: cover;
-  background-position: center;
+  // background-size: cover;
+  // background-position: center;
+  object-fit: cover;
 }
 
 .pet-card-description {
