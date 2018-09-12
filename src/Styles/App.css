@@ -174,7 +174,7 @@ body {
   border: none; }
 
 .box {
-  border: 2px solid #23c6b7;
+  border: 1px solid #23c6b7;
   background-color: white; }
 
 h1, h2, h3, h4 {
@@ -247,7 +247,8 @@ input[type=checkbox] {
 
 .main-header {
   background-color: #c5e2dc;
-  background-image: url(../Components/glitter-background.gif); }
+  background-image: url(../Components/glitter-background.gif);
+  box-shadow: 0px 5px 5px rgba(35, 198, 183, 0.3); }
   .main-header .search-form {
     width: 60%;
     display: inline-block;
@@ -306,8 +307,7 @@ input[type=checkbox] {
     margin: 10px auto 0 auto; }
 
 footer {
-  position: absolute;
-  bottom: 10px;
+  padding: 20px 0px;
   text-align: center;
   width: 100%; }
 
@@ -399,7 +399,7 @@ footer {
 
 @media (max-width: 900px) {
   .landing-logo {
-    width: 125px;
+    width: 150px;
     padding: 0; }
   .welcome, .instruction, .landing-search-form {
     width: 100%;
