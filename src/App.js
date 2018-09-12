@@ -136,6 +136,7 @@ class App extends Component {
         const favesList = Object.values(this.state.faves);
         for (let i = 0; i < favesList.length; i++) {
             if (favesList[i].id === pet.id) {
+                console.log(true);
                 return true;
             }
         }
@@ -143,35 +144,41 @@ class App extends Component {
 
     addToFaves = (pet) => {
         if (this.isFavorite(pet)) {
-            alert('this pet is already in your faves')
+            swal({
+                type: 'error',
+                text: 'This animal is already on your faves!'
+            })
         } else {
             firebase.database().ref(`${this.state.user.uid}/faves`).push(pet);
-            alert('added to faves!');
+            swal({
+                type: 'success',
+                text: 'Added to faves!'
+            })
         }
     }
 
-    deleteFromFaves = (e) => {
+    deleteFromFaves = (key) => {
         // const target = Object.assign(e.target)
-        // swal({
-        //     title: 'Do you want to delete this critter?',
-        //     // text: 'Do you want to delete this critter?',
-        //     type: 'warning',
-        //     confirmButtonText: 'Delete this critter'
-        // }).then((res) => {
-        //     console.log(target);
-        //     if (res.value) {
-        //         swal(
-        //             'Deleted!'
-        //         )
-        //         firebase.database().ref(`${this.state.user.uid}/faves/${target.id}`).remove();
-        //     }
-        // })
+        swal({
+            title: 'Do you want to delete this critter?',
+            // text: 'Do you want to delete this critter?',
+            type: 'warning',
+            confirmButtonText: 'Delete this critter'
+        }).then((res) => {
+            // console.log(target);
+            if (res.value) {
+                swal(
+                    'Deleted!'
+                )
+                firebase.database().ref(`${this.state.user.uid}/faves/${key}`).remove();
+            }
+        })
 
-        const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
-        if (confirmDelete) {
-            firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
+        // const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
+        // if (confirmDelete) {
+        //     firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
             
-        }
+        // }
     }
 
 

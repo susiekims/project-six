@@ -79,28 +79,28 @@ class singlePets extends Component {
         }
     }
 
-    deleteFromFaves = (petKey) => {
-        const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
-        if (confirmDelete) {
-            firebase.database().ref(`${this.state.user.uid}/faves/${petKey}`).remove();
-            alert('removed from faves!');
-        }
-    }
-
     // deleteFromFaves = (petKey) => {
-    //     swal({
-    //         title: 'Remove this critter from your faves?',
-    //         type: 'warning',
-    //         confirmButtonText: 'Delete this critter'
-    //     }).then((res) => {
-    //         if (res.value) {
-    //             swal(
-    //                 'Deleted!'
-    //             )
-    //             firebase.database().ref(`${this.state.user.uid}/faves/${petKey}`).remove();
-    //         }
-    //     })
+    //     const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
+    //     if (confirmDelete) {
+    //         firebase.database().ref(`${this.state.user.uid}/faves/${petKey}`).remove();
+    //         alert('removed from faves!');
+    //     }
     // }
+
+    deleteFromFaves = (petKey) => {
+        swal({
+            title: 'Remove this critter from your faves?',
+            type: 'warning',
+            confirmButtonText: 'Delete this critter'
+        }).then((res) => {
+            if (res.value) {
+                swal(
+                    'Deleted!'
+                )
+                firebase.database().ref(`${this.state.user.uid}/faves/${petKey}`).remove();
+            }
+        })
+    }
 
     render() {
         return (
