@@ -18,7 +18,7 @@ body {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
-  transition: 0.6s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .button:hover {
@@ -46,7 +46,7 @@ h1, h2, h3, h4 {
   transition: 0.5s;
 }
 
-.pet-card:hover {
+.pet-card:hover, .fave-pets:hover {
   transform: scale(1.02);
 }
 

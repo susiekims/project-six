@@ -160,7 +160,7 @@ body {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
-  transition: 0.6s ease-in-out; }
+  transition: 0.3s ease-in-out; }
 
 .button:hover {
   background-color: #ff506e; }
@@ -181,7 +181,7 @@ h1, h2, h3, h4 {
 .pet-card {
   transition: 0.5s; }
 
-.pet-card:hover {
+.pet-card:hover, .fave-pets:hover {
   transform: scale(1.02); }
 
 .search-form {
@@ -256,11 +256,9 @@ input[type=checkbox] {
   .dropdown-button {
     float: right;
     display: block;
-    width: 30px;
-    height: 25px;
     background-color: #23c6b7;
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-align: center; }
   .main-header input[type=checkbox]:checked ~ .search-form {
     display: block;
@@ -275,8 +273,12 @@ input[type=checkbox] {
     display: block;
     width: 80%;
     text-align: center;
-    margin: 0 auto;
-    box-shadow: 5px 5px 10px #ff506e; } }
+    margin: 0 auto; } }
+
+@media (max-width: 320px) {
+  .header-button {
+    font-size: 0.6rem;
+    padding: 4px; } }
 
 .landing-page {
   height: 100vh;
@@ -400,7 +402,6 @@ input[type=checkbox] {
   .landing-search-form {
     height: 300px; }
   .landing-page .search-form input, .landing-page .search-form select {
-    background-color: white;
     text-align: center;
     display: block;
     width: 100%;
@@ -635,3 +636,6 @@ input[type=checkbox] {
     width: 90%; }
   .delete-button {
     width: 40%; } }
+
+.fave-pets-heading {
+  text-transform: uppercase; }

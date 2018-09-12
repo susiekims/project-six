@@ -10,12 +10,7 @@ import userLocation from './userLocation';
 import config from './firebase';
 import firebase from 'firebase';
 import FavePets from './Components/FavePets'
-// ES6 Modules or TypeScript
 import swal from 'sweetalert2'
-
-// CommonJS
-// const swal = require('sweetalert2')
-
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
@@ -141,7 +136,6 @@ class App extends Component {
         const favesList = Object.values(this.state.faves);
         for (let i = 0; i < favesList.length; i++) {
             if (favesList[i].id === pet.id) {
-                console.log(true);
                 return true;
             }
         }
@@ -157,34 +151,31 @@ class App extends Component {
     }
 
     deleteFromFaves = (e) => {
-        const target = Object.assign(e.target)
-        swal({
-            title: 'Do you want to delete this critter?',
-            // text: 'Do you want to delete this critter?',
-            type: 'warning',
-            confirmButtonText: 'Delete this critter'
-        })
+        // const target = Object.assign(e.target)
+        // swal({
+        //     title: 'Do you want to delete this critter?',
+        //     // text: 'Do you want to delete this critter?',
+        //     type: 'warning',
+        //     confirmButtonText: 'Delete this critter'
+        // }).then((res) => {
+        //     console.log(target);
+        //     if (res.value) {
+        //         swal(
+        //             'Deleted!'
+        //         )
+        //         firebase.database().ref(`${this.state.user.uid}/faves/${target.id}`).remove();
+        //     }
+        // })
 
-        .then((res) => {
-            console.log(target);
-            if (res.value) {
-                swal(
-                    'Deleted!'
-                )
-                firebase.database().ref(`${this.state.user.uid}/faves/${target.id}`).remove();
-            }
-        })
-
-        // const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
-        // if (confirmDelete) {
-        //     firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
+        const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
+        if (confirmDelete) {
+            firebase.database().ref(`${this.state.user.uid}/faves/${e.target.id}`).remove();
             
-        // }
+        }
     }
 
 
     getPets = (location, type, age, sex, breed) => {
-        console.log(location, type, age, sex, breed);
         this.setState({
             pets: []
         })
@@ -228,9 +219,6 @@ class App extends Component {
                             && pet.id.$t
                             && pet.age.$t
                     });
-                    if (pets.length === 0){
-                        alert('it is 0')
-                    }
                     let petsList = pets.map(pet => {
                         return ({
                             name: pet.name.$t,
@@ -243,9 +231,8 @@ class App extends Component {
                         })
                     })
                     this.setState({pets: petsList});
-                } else if(petsArray[0].media.photos){
+                } else if(petsArray[0].media.photos) {
                     let pet = [ petsArray[0] ]; 
-
                     let petsList = pet.map(pet => {
                         return ({
                             name: pet.name.$t,
@@ -256,15 +243,25 @@ class App extends Component {
                             age: pet.age.$t
                         })
                     })
-
                     this.setState({
                         pets: petsList
                     })
                 } else {
-                    alert('NO PET PHOTKA');
+                    swal({
+                        title: 'Sorry, no critters match your criteria',
+                        text: 'Try another search.',
+                        type: 'error',
+                        confirmButtonText: 'OK'
+                    })
                 }
+            } else {
+                swal({
+                    title: 'Sorry, no critters match your criteria',
+                    text: 'Try another search.',
+                    type: 'error',
+                    confirmButtonText: 'OK'
+                })
             }
-            else {alert('no pets SAAAAWRY')}; 
         })
     }
     
@@ -279,7 +276,7 @@ class App extends Component {
                         <Redirect to="/results" />
                     )}/> */}
 
-                      <Route exact path="/" render={(props) => (
+                    <Route exact path="/" render={(props) => (
                         // this.state.pets.length === 0 ?
                         <Landing {...props} user={this.state.user} login={this.login} logout={this.logout} breeds={this.state.breeds} getPets={this.getPets} location={this.state.location}/>
                         // :
