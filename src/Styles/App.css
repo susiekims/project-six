@@ -151,7 +151,9 @@ body {
   font-size: 62.5%;
   margin: 0 auto;
   color: #23c6b7;
-  background-color: #c5e2dc; }
+  background-color: #c5e2dc;
+  background-image: url(../Components/glitter-background.gif);
+  min-height: 100vh; }
 
 .button {
   padding: 8px 10px;
@@ -178,10 +180,10 @@ body {
 h1, h2, h3, h4 {
   font-weight: normal; }
 
-.pet-card {
+.pet-card, .saved-pet {
   transition: 0.5s; }
 
-.pet-card:hover, .fave-pets:hover {
+.fave-pets .saved-pet:hover, .result-page .pet-card:hover {
   transform: scale(1.02); }
 
 .search-form {
@@ -241,7 +243,8 @@ input[type=checkbox] {
   visibility: hidden; }
 
 .main-header {
-  background-color: #c5e2dc; }
+  background-color: #c5e2dc;
+  background-image: url(../Components/glitter-background.gif); }
   .main-header .search-form {
     width: 60%;
     display: inline-block;
@@ -281,6 +284,7 @@ input[type=checkbox] {
     padding: 4px; } }
 
 .landing-page {
+  background-image: url(../Components/glitter-background.gif);
   height: 100vh;
   width: 100vw; }
   .landing-page .search-form input, .landing-page .search-form select {
@@ -297,6 +301,12 @@ input[type=checkbox] {
     color: white;
     display: block;
     margin: 10px auto 0 auto; }
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%; }
 
 .wrapper-landing {
   width: 60%;
@@ -440,7 +450,9 @@ input[type=checkbox] {
   display: block; }
 
 .result-page {
-  background-color: #c5e2dc; }
+  background-color: #c5e2dc;
+  background-image: url(../Components/glitter-background.gif);
+  min-height: 100vh; }
 
 .wrapper-results {
   width: 80%;
@@ -495,6 +507,9 @@ input[type=checkbox] {
 .loader {
   margin: 0 auto; }
 
+.single-pets {
+  background-image: url(../Components/glitter-background.gif); }
+
 .wrapper-single-pets {
   width: 60%;
   margin: 100px auto; }
@@ -512,14 +527,13 @@ input[type=checkbox] {
     text-align: center;
     font-size: 1rem;
     margin-bottom: 10px; }
-  .wrapper-single-pets .box {
-    margin-bottom: 100px; }
   .wrapper-single-pets .button {
     margin-right: 5px;
     box-shadow: 5px 5px 5px rgba(197, 226, 220, 0.5); }
 
 .single-pets-content {
-  padding: 20px 50px; }
+  padding: 20px 50px;
+  margin-bottom: 50px; }
 
 .social-buttons {
   margin: 0 auto; }
@@ -561,10 +575,17 @@ input[type=checkbox] {
   .single-pets-content {
     padding: 10px; } }
 
+.fave-pets {
+  background-color: #c5e2dc;
+  background-image: url(../Components/glitter-background.gif);
+  min-height: 100vh; }
+
 .fave-pets-body {
   width: 80%;
   margin: 0 auto;
-  margin-top: 100px; }
+  margin-top: 100px;
+  background-image: url(../Components/glitter-background.gif);
+  min-height: 100vh; }
 
 .fave-pets-heading {
   text-align: center;

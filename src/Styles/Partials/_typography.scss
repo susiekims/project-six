@@ -4,11 +4,14 @@
   margin: 0 auto;
 }
 
+
 body {
   font-size: 62.5%;
   margin: 0 auto;
   color: $secondary;
   background-color: $tertiary;
+  background-image: url(../Components/glitter-background.gif);
+  min-height: 100vh;
 }
 
 .button {
@@ -42,15 +45,13 @@ h1, h2, h3, h4 {
   font-weight: normal;
 }
 
-.pet-card {
+.pet-card, .saved-pet {
   transition: 0.5s;
 }
 
-.pet-card:hover, .fave-pets:hover {
+.fave-pets .saved-pet:hover, .result-page .pet-card:hover {
   transform: scale(1.02);
 }
-
-
 
 
 

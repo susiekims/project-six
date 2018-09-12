@@ -132,7 +132,6 @@ class singlePets extends Component {
 
                     </div>
                 </div>
-            
             </div>
         )
     }
