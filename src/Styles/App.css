@@ -159,7 +159,11 @@ body {
   color: white;
   text-transform: uppercase;
   font-weight: 600;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  transition: 0.6s ease-in-out; }
+
+.button:hover {
+  background-color: #ff506e; }
 
 .link {
   text-decoration: none; }
@@ -173,6 +177,12 @@ body {
 
 h1, h2, h3, h4 {
   font-weight: normal; }
+
+.pet-card {
+  transition: 0.5s; }
+
+.pet-card:hover {
+  transform: scale(1.02); }
 
 .search-form {
   height: 30px;
@@ -315,7 +325,7 @@ input[type=checkbox] {
 .welcome {
   margin-right: 10px; }
 
-.welcome i, .instruction i, .landing-search-form i {
+.welcome i, .instruction i, .landing-search-form i, .wrapper-single-pets i {
   float: right; }
 
 .landing-search-form {
@@ -515,6 +525,10 @@ input[type=checkbox] {
 
 .twitter-share-button {
   float: right; }
+
+.wrapper-single-pets i {
+  font-size: 1.6rem;
+  padding-top: 5px; }
 
 @media (max-width: 1100px) {
   .twitter-share-button {

@@ -92,7 +92,7 @@ class singlePets extends Component {
             <Header user={this.props.user} login={this.props.login} logout={this.props.logout} loggedIn={this.props.loggedIn} location={this.props.location} breeds={this.props.breeds} getPets={this.props.getPets}/>
 
                 <div className="box wrapper-single-pets">
-                    <h3>{this.state.animal.name}</h3>
+                    <h3>{this.state.animal.name}<i class="fas fa-times"></i></h3>
                     <div className="single-pets-content">
                         <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
                         <h4>Breed: {this.state.animal.breed}</h4>
