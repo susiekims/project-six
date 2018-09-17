@@ -22,7 +22,6 @@ class SearchForm extends Component {
     }
 
     handleSubmit = (e) => {
-        console.log('submitted');
         e.preventDefault();
         if ( document.getElementById('type').value) {
             let location = this.state.location;

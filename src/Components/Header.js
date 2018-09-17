@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router'
 
 class Header extends Component {
     constructor(props) {
@@ -9,7 +8,6 @@ class Header extends Component {
         this.state = {
             user: this.props.user,
             loggedIn: false, 
-            // redirect: this.props.redirect,
         }
     }
 

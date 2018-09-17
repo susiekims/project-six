@@ -70,7 +70,6 @@ class singlePets extends Component {
 
     getKey = (petID) => {
         const favesList = Object.entries(this.props.faves);
-        console.log(favesList);
         for (let i = 0; i < favesList.length; i++) {
             if (favesList[i][1].id === petID) {
                 const petKey = favesList[i][0];
@@ -78,14 +77,6 @@ class singlePets extends Component {
             }
         }
     }
-
-    // deleteFromFaves = (petKey) => {
-    //     const confirmDelete = window.confirm('are you sure you want to remove this pet from your faves?');
-    //     if (confirmDelete) {
-    //         firebase.database().ref(`${this.state.user.uid}/faves/${petKey}`).remove();
-    //         alert('removed from faves!');
-    //     }
-    // }
 
     deleteFromFaves = (petKey) => {
         swal({
@@ -110,7 +101,7 @@ class singlePets extends Component {
                 <div className="box wrapper-single-pets">
                     <h3>{this.state.animal.name}<i class="fas fa-times"></i></h3>
                     <div className="single-pets-content">
-                        <img src={this.state.animal.photo} alt={`a photo of ${this.state.animal.name}`}/>
+                        <img src={this.state.animal.photo} alt={`${this.state.animal.name} the ${this.state.animal.breed}`}/>
                         <h4>Breed: {this.state.animal.breed}</h4>
                         <h4>Sex: {this.state.animal.sex}</h4>
                         <p>{this.state.animal.description}</p>

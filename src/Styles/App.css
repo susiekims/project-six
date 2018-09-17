@@ -247,7 +247,6 @@ input[type=checkbox] {
 
 .main-header {
   background-color: #c5e2dc;
-  background-image: url(../Components/glitter-background.gif);
   box-shadow: 0px 5px 5px rgba(35, 198, 183, 0.3); }
   .main-header .search-form {
     width: 60%;

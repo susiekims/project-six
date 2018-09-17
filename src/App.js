@@ -1,6 +1,6 @@
 // import packages
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './Styles/App.css';
 import axios from 'axios';
 import Qs from 'qs';
@@ -36,7 +36,6 @@ class App extends Component {
 
     componentDidMount() {
         userLocation().then((loc) => {
-            console.log(loc);
             this.setState({
                 location: loc
             })
@@ -103,7 +102,6 @@ class App extends Component {
         .then((res) => {
            let logout = res.value 
             if (logout) {
-                // alert('signed out!');
                 swal({
                     title: 'Logged out!',
                     type: 'success'
@@ -133,7 +131,6 @@ class App extends Component {
         const favesList = Object.values(this.state.faves);
         for (let i = 0; i < favesList.length; i++) {
             if (favesList[i].id === pet.id) {
-                console.log(true);
                 return true;
             }
         }
